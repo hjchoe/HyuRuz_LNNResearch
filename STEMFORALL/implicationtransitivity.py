@@ -1,9 +1,10 @@
-# ------------------------------------------------------------------------------------------------------------------
-# Project Title:                    Proving Transitivity of Implication Using A Logical Neural Network (LNN) Model
-# Program:                          STEMforALL
-# University:                       University of Rochester
-# Department:                       Goergen Institute for Data Science
-# Course/Research Group:            Automated Theorem Proving
+# ----------------------------------------------------------------------------------------------------------------
+# Project Title:    Proving Transitivity of Implication Using A Logical Neural Network (LNN) Model
+# File Name:        implicationtransitivity.py
+# Program:          STEMforALL
+# University:       University of Rochester
+# Department:       Goergen Institute for Data Science
+# Research Group:   Automated Theorem Proving
 # 
 # Authors:
 #   Hyunho Choe (James)
@@ -18,7 +19,7 @@
 # 
 # Reference:
 #   IBM Logical Neural Networks (LNN): https://ibm.github.io/LNN/index.html
-# ------------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------
 
 from lnn import Propositions, Implies, And, Model, Fact, Loss, Direction
 
@@ -43,14 +44,12 @@ def implicationtransitivity():
     B_IMPLIES_C.add_data(Fact.TRUE)
     ROOT.add_data(Fact.TRUE)
 
-    print("\n<------------------------------ BEFORE INFERENCE ------------------------------>")
-    model.print()
-
     ### Reasoning
+    print("\n<------------------------------ BEFORE INFERENCE ------------------------------>")
+    model.print(params=True)
     model.infer()
-
     print("\n<------------------------------ AFTER INFERENCE ------------------------------>")
-    model.print()
+    model.print(params=True)
 
     # User Input for Detailed
     detailed = False

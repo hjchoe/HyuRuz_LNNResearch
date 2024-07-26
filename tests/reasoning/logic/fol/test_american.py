@@ -131,6 +131,8 @@ def test_2():
         }
     )
 
+    model.print()
+
     model.infer()
     GT_o = dict([("West", Fact.TRUE)])
     assert all([model.query.state(groundings=g) is GT_o[g] for g in GT_o]), "FAILED 😔"
