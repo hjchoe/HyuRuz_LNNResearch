@@ -5,6 +5,7 @@
 # University:       University of Rochester
 # Department:       Goergen Institute for Data Science
 # Research Group:   Automated Theorem Proving
+# Research Topic:   Neura-Symbolic AI: FOL and LNNs
 # 
 # Authors:
 #   Hyunho Choe (James)
