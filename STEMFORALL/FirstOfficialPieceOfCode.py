@@ -21,7 +21,7 @@
 # ----------------------------------------------------------------------------------------------------------------
 
 from lnn import Model, Variable, Predicate, Forall, Implies, And, Or, Not, World, Fact, Exists
-from ..helper import advPrint as printer
+from ..helper import printer
 
 def test():
     """
