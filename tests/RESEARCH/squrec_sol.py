@@ -1,5 +1,5 @@
 from lnn import Model, Variable, Predicate, Forall, Or, Not, Implies, Exists, World, Fact
-from ..helper import printer
+from helper import printer
 
 def squrec_sol():
     model = Model()

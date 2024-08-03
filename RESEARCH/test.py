@@ -1,5 +1,5 @@
 from lnn import Model, Variable, Proposition, Predicate, Forall, And, Or, Implies, Not, World, Fact
-from ..helper import printer
+from helper import printer
 
 def test():
     model = Model()

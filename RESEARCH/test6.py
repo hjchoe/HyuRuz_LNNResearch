@@ -1,5 +1,5 @@
 from lnn import Model, Proposition, Or, Not, World
-from ..helper import printer
+from helper import printer
 
 def test6():
     model = Model()

@@ -1,5 +1,5 @@
 from lnn import Model, Proposition, And, Or, Not, Fact
-from ..helper import printer
+from helper import printer
 
 def test2():
     model = Model()

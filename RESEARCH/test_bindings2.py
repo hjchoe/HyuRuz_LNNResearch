@@ -1,5 +1,5 @@
 from lnn import Model, Variable, Predicate, Forall, Implies, And, Exists, World, Fact
-from ..helper import printer
+from helper import printer
 
 def test_bindings2():
     """Testing double binding with single variable."""

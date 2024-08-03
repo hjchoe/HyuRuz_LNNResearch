@@ -1,5 +1,5 @@
 from lnn import *
-from ..helper import printer
+from helper import printer
 
 def test_bindings1():
     """

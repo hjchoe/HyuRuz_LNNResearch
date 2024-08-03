@@ -1,5 +1,5 @@
 from lnn import Model, Variables, Predicate, Forall, Implies, And, World, Exists, Fact
-from ...helper import printer
+from helper import printer
 
 def American():
     model = Model()

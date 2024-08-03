@@ -1,7 +1,7 @@
 from contextlib import redirect_stdout
 from typing import Set
 from lnn import Formula, Model, Proposition, Or, And, Not, Iff, World, Fact, Loss
-from ..helper import printer
+from helper import printer
 
 def iterate_subformulas(formula: Formula):
     yield formula

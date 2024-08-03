@@ -1,5 +1,5 @@
 from lnn import Model, Proposition, Implies, Or, And, World, Fact
-from ..helper import printer
+from helper import printer
 
 def test3():
     model = Model()

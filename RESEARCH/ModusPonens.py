@@ -1,5 +1,5 @@
 from lnn import Formula, Model, Forall, Variable, Predicate, Implies, And, Not, Fact
-from ..helper import printer
+from helper import printer
 
 def ModusPonens(lhs: Formula, rhs: Formula):
     return Implies(
