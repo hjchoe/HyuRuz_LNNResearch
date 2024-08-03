@@ -1,5 +1,5 @@
 from lnn import *
-from helper import printer
+from helper import Printer
 
 def stemforall():
     model = Model()
@@ -79,12 +79,14 @@ def stemforall():
     model.set_query(query)
 
     model.plot_graph(formula_number=False, with_labels=False, arrows=True, node_size=500, font_size=9)
+    
+    filename = "stemforall"
 
-    printer.printFile_BeforeInfer(model=model, params=False, numbering=True)
+    Printer.printFile_BeforeInfer(filename=filename, model=model, params=False, numbering=True)
 
     steps, facts_inferred = model.infer()
 
-    printer.printFile_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
+    Printer.printFile_AfterInfer(filename=filename, model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
 
     model.plot_graph(formula_number=False, with_labels=False, arrows=True, node_size=500, font_size=9)
 

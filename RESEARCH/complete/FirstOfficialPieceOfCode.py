@@ -21,7 +21,7 @@
 # ----------------------------------------------------------------------------------------------------------------
 
 from lnn import Model, Variable, Predicate, Forall, Implies, And, Or, Not, World, Fact, Exists
-from helper import printer
+from helper import Printer
 
 def test():
     """
@@ -138,13 +138,13 @@ def test():
     model.set_query(query)
 
     # Print Model Before
-    printer.print_BeforeInfer(model=model, query=query, params=False, numbering=True)
+    Printer.print_BeforeInfer(model=model, query=query, params=False, numbering=True)
 
     # Run Inference on Model
     steps, facts_inferred = model.infer()
 
     # Print Model After
-    printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, query=query, params=False, numbering=True)
+    Printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, query=query, params=False, numbering=True)
 
     # User input for Show Plot
     answer = input("View Graph? (default= Y) [Y/N]: ")

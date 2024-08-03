@@ -672,19 +672,20 @@ class Formula(ABC):
 
         variable_objects = list()
 
-        for v in variables:
-#DEBUG {
-            print(f"     VAR: {v} | {type(v)}")
+#DEBUG  for v in variables: {
+        print("     VARS:")
+        for i, v in enumerate(variables):
+            print(f"          {i}: < {v} | {type(v)} >", end=' ')
 #}
             if isinstance(v, str):
 #DEBUG {
-                print("         [CONSTANT]")
+                print("[CONSTANT]")
 #}
                 bindings.append([self._ground(v, arity_match=False)])
                 continue
             elif isinstance(v, Variable):
 #DEBUG {
-                print("         [VARIABLE]")
+                print("[VARIABLE]")
 #}
                 variable_objects.append(v)
             else:
@@ -712,6 +713,10 @@ class Formula(ABC):
                     )
             else:
                 bindings.append([None])
+            
+#DEBUG {
+        print(f"     BINDINGS:\n          {bindings}\n     VARIABLES:\n          {variable_objects}\n")
+#}
         return self, self.variables, tuple(variable_objects), bindings
 
     def __str__(self) -> str:

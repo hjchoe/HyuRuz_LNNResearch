@@ -1,5 +1,5 @@
 from lnn import *
-from helper import printer
+from helper import Executor
 
 def test_bindings1():
     """
@@ -38,15 +38,7 @@ def test_bindings1():
         }
     })
 
-    model.set_query(query)
-
-    printer.print_BeforeInfer(model=model, query=query, params=False, numbering=True)
-
-    steps, facts_inferred = model.infer()
-
-    printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, query=query, params=False, numbering=True)
-
-    model.plot_graph(formula_number=False, with_labels=False, arrows=True, node_size=500, font_size=9)
+    Executor.inferModel(model=model, query=query, filename="test_bindings1")
 
 def test_bindings2():
     """
@@ -85,15 +77,7 @@ def test_bindings2():
         }
     })
 
-    model.set_query(query)
-
-    printer.print_BeforeInfer(model=model, query=query, params=False, numbering=True)
-
-    steps, facts_inferred = model.infer()
-
-    printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, query=query, params=False, numbering=True)
-
-    model.plot_graph(formula_number=False, with_labels=False, arrows=True, node_size=500, font_size=9)
+    Executor.inferModel(model=model, query=query, filename="test_bindings2")
 
 def test_bindings3():
     """
@@ -131,15 +115,7 @@ def test_bindings3():
         }
     })
 
-    model.set_query(query)
-
-    printer.print_BeforeInfer(model=model, query=query, params=False, numbering=True)
-
-    steps, facts_inferred = model.infer()
-
-    printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, query=query, params=False, numbering=True)
-
-    model.plot_graph(formula_number=False, with_labels=False, arrows=True, node_size=500, font_size=9)
+    Executor.inferModel(model=model, query=query, filename="test_bindings3")
 
 def test_bindings4():
     """Testing double binding with single variable."""
@@ -176,15 +152,12 @@ def test_bindings4():
         }
     })
 
-    model.set_query(query)
-
-    printer.printFile_BeforeInfer(model=model, query=query, params=False, numbering=True)
-
-    steps, facts_inferred = model.infer()
-
-    printer.printFile_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, query=query, params=False, numbering=True)
-
-    model.plot_graph(formula_number=False, with_labels=False, arrows=True, node_size=500, font_size=9)
+    Executor.inferModel(model=model, query=query, filename="test_bindings4")
 
 if __name__ == "__main__":
+    print("\n@@@@@ 1")
     test_bindings1()
+    print("\n@@@@@ 2")
+    test_bindings2()
+    print("\n@@@@@ 3")
+    test_bindings3()

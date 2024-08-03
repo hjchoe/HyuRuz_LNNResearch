@@ -2,7 +2,7 @@ from typing import Tuple
 from lnn import Model, Formula
 from contextlib import redirect_stdout
 
-def print_BeforeInfer(model: Model, query: Formula = False, params: bool = False, numbering: bool = False):
+def print_BeforeInfer(model: Model, query: Formula=None, params: bool=False, numbering: bool=False):
     print("\n<------------------------------ BEFORE INFERENCE ------------------------------>")
     model.print(params=params, numbering=numbering)
     
@@ -10,7 +10,7 @@ def print_BeforeInfer(model: Model, query: Formula = False, params: bool = False
         print("\n__QUERY__")
         query.print(params=params)
     
-def print_AfterInfer(model: Model, steps: Tuple[int, int], facts_inferred, query: Formula = False, params: bool = False, numbering: bool = False):
+def print_AfterInfer(model: Model, query: Formula=None, params: bool=False, numbering: bool=False, steps: Tuple[int, int]=(-1, -1), facts_inferred="N/A"):
     print("\n<------------------------------ AFTER INFERENCE ------------------------------>")
     model.print(params=params, numbering=numbering)
     print(f"steps: {steps}\nfacts_inferred: {facts_inferred}")
@@ -19,8 +19,8 @@ def print_AfterInfer(model: Model, steps: Tuple[int, int], facts_inferred, query
         print("\n__QUERY__")
         query.print(params=params)
 
-def printFile_BeforeInfer(model: Model, query: Formula = False, params: bool = False, numbering: bool = False):
-    with open('In.txt', 'w') as f:
+def printFile_BeforeInfer(filename: str, model: Model, query: Formula=None, params: bool=False, numbering: bool=False):
+    with open(f'{filename}_In.txt', 'w') as f:
         with redirect_stdout(f):
             print("\n<------------------------------ BEFORE INFERENCE ------------------------------>")
             model.print(params=params, numbering=numbering)
@@ -30,8 +30,8 @@ def printFile_BeforeInfer(model: Model, query: Formula = False, params: bool = F
                 query.print(params=params)
     f.close()
     
-def printFile_AfterInfer(model: Model, steps: Tuple[int, int], facts_inferred, query: Formula = False, params: bool = False, numbering: bool = False):
-    with open('Out.txt', 'w') as f:
+def printFile_AfterInfer(filename: str, model: Model, steps: Tuple[int, int], facts_inferred, query: Formula=None, params: bool=False, numbering: bool=False):
+    with open(f'{filename}_Out.txt', 'w') as f:
         with redirect_stdout(f): 
             print("\n<------------------------------ AFTER INFERENCE ------------------------------>")
             model.print(params=params, numbering=numbering)

@@ -1,5 +1,5 @@
 from lnn import Formula, Model, Forall, Variable, Predicate, Implies, And, Not, Fact
-from helper import printer
+from helper import Printer
 
 def ModusPonens(lhs: Formula, rhs: Formula):
     return Implies(
@@ -46,13 +46,13 @@ def ModusPonensTest():
     })
 
     # Print Model Before
-    printer.print_BeforeInfer(model=model, query=query, params=False, numbering=True)
+    Printer.print_BeforeInfer(model=model, query=query, params=False, numbering=True)
 
     # Run Inference on Model
     steps, facts_inferred = model.infer()
 
     # Print Model After
-    printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, query=query, params=False, numbering=True)
+    Printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, query=query, params=False, numbering=True)
 
     # User input for Show Plotgi
     answer = input("View Graph? (default= Y) [Y/N]: ")

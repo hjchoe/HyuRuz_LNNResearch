@@ -1,7 +1,7 @@
 from contextlib import redirect_stdout
 from typing import Set
 from lnn import Formula, Model, Proposition, Or, And, Not, Iff, World, Fact, Loss
-from helper import printer
+from helper import Printer
 
 def iterate_subformulas(formula: Formula):
     yield formula
@@ -116,16 +116,16 @@ def UniversalDistributive():
 
     model.add_knowledge(query)
 
-    #printer.print_BeforeInfer(model=model, params=False, numbering=True)
-    printer.printFile_BeforeInfer(model=model, params=False, numbering=True)
+    #Printer.print_BeforeInfer(model=model, params=False, numbering=True)
+    Printer.printFile_BeforeInfer(filename="UniversalDistributive", model=model, params=False, numbering=True)
 
     #epochs, total_loss = model.train(losses=Loss.CONTRADICTION, pbar=True)
 
     #steps, facts_inferred = model.infer()
     #model.infer_query()
 
-    #printer.print_AfterInfer(model=model, steps=epochs, facts_inferred=total_loss, params=False, numbering=True)
-    #printer.printFile_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
+    #Printer.print_AfterInfer(model=model, steps=epochs, facts_inferred=total_loss, params=False, numbering=True)
+    #Printer.printFile_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
 
     print("__QUERY__")
     query.print()

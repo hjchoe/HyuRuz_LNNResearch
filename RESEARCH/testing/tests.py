@@ -1,7 +1,7 @@
 from lnn import Model, Variable, Proposition, Predicate, Forall, And, Or, Implies, Not, World, Fact
-from helper import printer
+from helper import Printer
 
-def test():
+def test1():
     model = Model()
 
     x = Variable("x")
@@ -41,7 +41,6 @@ def test():
 
     model.print()
 
-
 def test2():
     model = Model()
 
@@ -67,16 +66,13 @@ def test2():
         E: Fact.FALSE
     })
 
-    printer.print_BeforeInfer(model=model, params=False, numbering=True)
+    Printer.print_BeforeInfer(model=model, params=False, numbering=True)
 
     steps, facts_inferred = model.infer()
 
-    printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
+    Printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
 
     model.plot_graph(formula_number=False, with_labels=False, arrows=True, node_size=500, font_size=9)
-
-if __name__ == "__main__":
-    test2()
 
 def test3():
     model = Model()
@@ -101,13 +97,77 @@ def test3():
         world=World.AXIOM
     )
 
-    printer.print_BeforeInfer(model=model, params=False, numbering=True)
+    Printer.print_BeforeInfer(model=model, params=False, numbering=True)
 
     steps, facts_inferred = model.infer()
 
-    printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
+    Printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
+
+    model.plot_graph(formula_number=False, with_labels=False, arrows=True, node_size=500, font_size=9)
+
+def test4():
+    model = Model()
+
+    A = Proposition("A")
+    B = Proposition("B")
+    C = Proposition("C")
+
+    model.add_knowledge(A, B)
+
+    A_and_B = And(A, B)
+    A_and_C = And(A, C)
+
+    model.add_knowledge(
+        A_and_B,
+        A_and_C,
+        world=World.AXIOM
+    )
+
+    conjecture = Or(
+        And(
+            A,
+            B
+        ),
+        And(
+            A,
+            C
+        )
+    )
+
+    model.set_query(conjecture)
+
+    Printer.print_BeforeInfer(model=model, params=False, numbering=True)
+
+    steps, facts_inferred = model.infer()
+
+    Printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
+
+    model.plot_graph(formula_number=False, with_labels=False, arrows=True, node_size=500, font_size=9)
+
+def test5():
+    model = Model()
+
+    A = Proposition("A")
+
+    # A v ~A
+    axiom1 = Or(
+        A,
+        Not(A)
+    )
+
+    model.add_knowledge(axiom1, world=World.AXIOM)
+
+    Printer.print_BeforeInfer(model=model, params=False, numbering=True)
+
+    steps, facts_inferred = model.infer()
+
+    Printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
 
     model.plot_graph(formula_number=False, with_labels=False, arrows=True, node_size=500, font_size=9)
 
 if __name__ == "__main__":
+    test1()
+    test2()
     test3()
+    test4()
+    test5()
