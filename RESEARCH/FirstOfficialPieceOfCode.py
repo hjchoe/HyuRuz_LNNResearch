@@ -146,7 +146,7 @@ def test():
     # Print Model After
     printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, query=query, params=False, numbering=True)
 
-    # User input for Show Plotgi
+    # User input for Show Plot
     answer = input("View Graph? (default= Y) [Y/N]: ")
     if answer != "N":
         model.plot_graph(formula_number=False, edge_variables=True, with_labels=False, arrows=True, node_size=500, font_size=9)

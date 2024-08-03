@@ -666,18 +666,34 @@ class Formula(ABC):
         bindings = list()
         bind = dict()
 
+#DEBUG {
+        print("Predicate Called")
+#}
+
         variable_objects = list()
 
         for v in variables:
+#DEBUG {
+            print(f"     VAR: {v} | {type(v)}")
+#}
             if isinstance(v, str):
+#DEBUG {
+                print("         [CONSTANT]")
+#}
                 bindings.append([self._ground(v, arity_match=False)])
                 continue
             elif isinstance(v, Variable):
+#DEBUG {
+                print("         [VARIABLE]")
+#}
                 variable_objects.append(v)
             else:
                 raise TypeError(f"expected variable, received {type(v)}")
 
             if v in bind:
+#DEBUG {
+                print("~~~if v in bind triggered")
+#}
                 if isinstance(bind[v], str):  # a single binding
                     bindings.append([self._ground(bind[v], arity_match=False)])
                 elif isinstance(bind[v], list):  # multiple bindings
