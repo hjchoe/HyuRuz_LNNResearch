@@ -1,3 +1,4 @@
+import os
 from typing import Tuple
 from lnn import Model, Formula
 from contextlib import redirect_stdout
@@ -20,7 +21,10 @@ def print_AfterInfer(model: Model, query: Formula=None, params: bool=False, numb
         query.print(params=params)
 
 def printFile_BeforeInfer(filename: str, model: Model, query: Formula=None, params: bool=False, numbering: bool=False):
-    with open(f'{filename}_In.txt', 'w') as f:
+    dirPath = f"{filename}_INFO"
+    os.makedirs(dirPath, exist_ok=True)
+    path = os.path.join(dirPath, "In.txt")
+    with open(path, 'w') as f:
         with redirect_stdout(f):
             print("\n<------------------------------ BEFORE INFERENCE ------------------------------>")
             model.print(params=params, numbering=numbering)
@@ -31,7 +35,10 @@ def printFile_BeforeInfer(filename: str, model: Model, query: Formula=None, para
     f.close()
     
 def printFile_AfterInfer(filename: str, model: Model, steps: Tuple[int, int], facts_inferred, query: Formula=None, params: bool=False, numbering: bool=False):
-    with open(f'{filename}_Out.txt', 'w') as f:
+    dirPath = f"{filename}_INFO"
+    os.makedirs(dirPath, exist_ok=True)
+    path = os.path.join(dirPath, "Out.txt")
+    with open(path, 'w') as f:
         with redirect_stdout(f): 
             print("\n<------------------------------ AFTER INFERENCE ------------------------------>")
             model.print(params=params, numbering=numbering)

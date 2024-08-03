@@ -1,6 +1,6 @@
 from typing import Tuple
 from lnn import Model, Formula
-from . import printer
+from . import Printer
 
 def inferModel(model: Model, query: Formula, print: bool=True, print_detailed: bool=True, print_file: bool=True, filename: str="", graph: bool=True):
     """
@@ -12,17 +12,17 @@ def inferModel(model: Model, query: Formula, print: bool=True, print_detailed: b
 
     if print:
         if print_file:
-            printer.printFile_BeforeInfer(filename=filename, model=model, query=query, params=print_detailed, numbering=print_detailed)
+            Printer.printFile_BeforeInfer(filename=filename, model=model, query=query, params=print_detailed, numbering=print_detailed)
         else:
-            printer.print_BeforeInfer(model=model, query=query, params=print_detailed, numbering=print_detailed)
+            Printer.print_BeforeInfer(model=model, query=query, params=print_detailed, numbering=print_detailed)
     
     steps, facts_inferred = model.infer()
 
     if print:
         if print_file:
-            printer.printFile_AfterInfer(filename=filename, model=model, steps=steps, facts_inferred=facts_inferred, query=query, params=print_detailed, numbering=print_detailed)
+            Printer.printFile_AfterInfer(filename=filename, model=model, steps=steps, facts_inferred=facts_inferred, query=query, params=print_detailed, numbering=print_detailed)
         else:
-            printer.print_AfterInfer(model=model, query=query, params=print_detailed, numbering=print_detailed, steps=steps, facts_inferred=facts_inferred)
+            Printer.print_AfterInfer(model=model, query=query, params=print_detailed, numbering=print_detailed, steps=steps, facts_inferred=facts_inferred)
         
     if graph:
         model.plot_graph(formula_number=False, with_labels=False, arrows=True)

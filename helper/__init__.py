@@ -1,6 +1,8 @@
-from .printer import print_BeforeInfer, print_AfterInfer
+from .Printer import print_BeforeInfer, print_AfterInfer
+from .Executor import inferModel
 
 __all__ = [
     "print_BeforeInfer",
-    "print_AfterInfer"
+    "print_AfterInfer",
+    "inferModel"
 ]
