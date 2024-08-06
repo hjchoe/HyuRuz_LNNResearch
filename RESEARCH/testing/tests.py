@@ -235,6 +235,8 @@ def test8():
         }
     })
 
+    model.plot_graph()
+
     Printer.print_BeforeInfer(model=model, params=False, numbering=True)
 
     steps, facts_inferred = model.infer()
@@ -636,4 +638,4 @@ def test19():
     Printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)      
 
 if __name__ == "__main__":
-    test19()
+    test8()
