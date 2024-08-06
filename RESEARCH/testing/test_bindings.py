@@ -1,5 +1,6 @@
 from lnn import *
 from helper import Executor
+from helper import Printer
 
 def test_bindings1():
     """
@@ -154,10 +155,64 @@ def test_bindings4():
 
     Executor.inferModel(model=model, query=query, filename="test_bindings4")
 
+
+def test_bindings5():
+    """
+    P Arity:        3
+    Q Arity:        1
+    Ground Terms:   1
+    Variables:      1
+    
+    P(free, free, ground)
+    Q(free)
+    """
+
+    model = Model()
+
+    x,y = Variables('x', 'y')
+
+    P = Predicate("P", arity=3)
+    Q = Predicate("Q")
+
+    axiom = Forall(
+        x,y,
+        Implies(
+            P(x, y, 'a'),
+            Q(x)
+        )
+    )
+
+    model.add_knowledge(axiom, world=World.AXIOM)
+
+    Printer.print_BeforeInfer(model=model, params=False, numbering=True)
+
+    """
+    query = Exists(x, Q(x))
+
+    
+
+    model.add_data({
+        P: {
+            ('a', 'b'): Fact.TRUE
+        }
+    })
+
+    Executor.inferModel(model=model, query=query, filename="test_bindings3")
+    """
+
+
+
+
 if __name__ == "__main__":
+    """
     print("\n@@@@@ 1")
     test_bindings1()
+    
     print("\n@@@@@ 2")
-    test_bindings2()
+    
     print("\n@@@@@ 3")
     test_bindings3()
+    """
+
+    test_bindings2()
+    test_bindings5()

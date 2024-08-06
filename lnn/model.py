@@ -23,6 +23,10 @@ import networkx as nx
 from tqdm import tqdm
 from torch import nn
 import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+import numpy as np
+import plotly.graph_objs as go
+import plotly.io as pio
 
 _utils.logger_setup(flush=True)
 
@@ -724,6 +728,96 @@ class Model(nn.Module):
         )
         print("*" * n)
 
+    def plot_graph(self, edge_variables: bool=False):
+        pos = viz.get_pos(self)
+
+        # Create the plotly figure
+        fig = go.Figure()
+
+        # Node size and shape parameters
+        node_radius = 0.025  # Adjust this value to fit the visual node size in plotly
+
+        # Add edges to the figure
+        for edge in self.graph.edges():
+            x0, y0 = pos[edge[0]]
+            x1, y1 = pos[edge[1]]
+
+            # Calculate the direction of the arrow
+            dx = x1 - x0
+            dy = y1 - y0
+            norm = np.sqrt(dx**2 + dy**2)
+            dx /= norm
+            dy /= norm
+
+            # Adjust positions to start and end at the edge of the nodes
+            start_x = x0 + dx * node_radius
+            start_y = y0 + dy * node_radius
+            end_x = x1 - dx * node_radius
+            end_y = y1 - dy * node_radius
+
+            fig.add_annotation(
+                x=end_x, y=end_y,
+                ax=start_x, ay=start_y,
+                xref="x", yref="y",
+                axref="x", ayref="y",
+                showarrow=True,
+                arrowhead=2,
+                arrowsize=1,
+                arrowwidth=1,
+                arrowcolor='#888'
+            )
+
+        # Add nodes to the figure
+        node_x = []
+        node_y = []
+        node_text = []
+        hover_text = []
+        for node in self.graph.nodes():
+            x, y = pos[node]
+            node_x.append(x)
+            node_y.append(y)
+            
+            text = node.connective_str if hasattr(node, "connective_str") else node.name
+            hover = f"#: {node.formula_number}" + (f"<br>Formula: {node.name}<br>Symbol: {node.connective_str}" if hasattr(node, "connective_str") else f"<br>Symbol: {node.name}")
+
+            node_text.append(text)
+            hover_text.append(hover)
+
+        fig.add_trace(go.Scatter(
+            x=node_x, y=node_y,
+            mode='markers+text',
+            textposition='top center',
+            marker=dict(
+                size=10,
+                color='LightSkyBlue',
+                line_width=2),
+            text=node_text,
+            hovertext=hover_text,
+            hoverinfo='text'))
+
+        # Add edge labels if required
+        if edge_variables:
+            edge_labels = {
+                edge: _utils.list_to_str(
+                    edge[0].operand_map[edge[0].operands.index(edge[1])]
+                )
+                for edge in self.graph.edges
+                if isinstance(edge[1], Predicate)
+            }
+            for edge, label in edge_labels.items():
+                x0, y0 = pos[edge[0]]
+                x1, y1 = pos[edge[1]]
+                fig.add_trace(go.Scatter(
+                    x=[(x0+x1)/2],
+                    y=[(y0+y1)/2],
+                    text=[label],
+                    mode='text',
+                    hoverinfo='none'))
+
+        fig.update_layout(showlegend=False)
+        pio.show(fig)
+
+    """
     def plot_graph(
         self, formula_number: bool = False, edge_variables: bool = False, **kwds
     ):
@@ -766,6 +860,7 @@ class Model(nn.Module):
                 labels,
             )
         plt.show()
+        """
 
     def flush(self):
         self._traverse_execute("flush")

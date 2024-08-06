@@ -25,4 +25,4 @@ def inferModel(model: Model, query: Formula, print: bool=True, print_detailed: b
             Printer.print_AfterInfer(model=model, query=query, params=print_detailed, numbering=print_detailed, steps=steps, facts_inferred=facts_inferred)
         
     if graph:
-        model.plot_graph(formula_number=False, with_labels=False, arrows=True)
+        model.plot_graph()

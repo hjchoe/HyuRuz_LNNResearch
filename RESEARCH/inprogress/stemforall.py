@@ -13,11 +13,10 @@ def stemforall():
     W = Predicate("Works with", arity=2)
     S4A = Predicate("lectures at StemforAll")
     B = Predicate("Best")
-    Great = Predicate("has a Great", arity=2)
 
-    model.add_knowledge(P, T, G, S, W, S4A, B, Great)
+    model.add_knowledge(P, T, G, S, W, S4A, B)
 
-    query = Exists(x, W('Iosevich', x))
+    query = Exists(z, W('Iosevich', z))
 
     axiom1 = Forall(
         x,y,z,
@@ -33,10 +32,10 @@ def stemforall():
     )
 
     axiom2 = Forall(
-        x,
+        z,
         Implies(
-            S4A(x),
-            G(x, 'University of Rochester')
+            S4A(z),
+            G(z, 'University of Rochester')
         )
     )
 
@@ -68,27 +67,22 @@ def stemforall():
         S: {
             'Stephanie': Fact.TRUE
         },
-        Great: {
-            ('Stephanie', 'Researchers'): Fact.TRUE
-        },
         S4A: {
             'Stephanie': Fact.TRUE
         }
     })
 
     model.set_query(query)
-
-    model.plot_graph(formula_number=False, with_labels=False, arrows=True, node_size=500, font_size=9)
     
     filename = "stemforall"
 
-    Printer.printFile_BeforeInfer(filename=filename, model=model, params=False, numbering=True)
+    Printer.printFile_BeforeInfer(filename=filename, model=model, query=query, params=False, numbering=True)
 
     steps, facts_inferred = model.infer()
 
-    Printer.printFile_AfterInfer(filename=filename, model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
+    Printer.printFile_AfterInfer(filename=filename, model=model, query=query, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
 
-    model.plot_graph(formula_number=False, with_labels=False, arrows=True, node_size=500, font_size=9)
+    model.plot_graph()
 
 
 

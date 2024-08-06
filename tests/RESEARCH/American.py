@@ -1,5 +1,5 @@
 from lnn import Model, Variables, Predicate, Forall, Implies, And, World, Exists, Fact
-from helper import printer
+from helper import Printer
 
 def American():
     model = Model()
@@ -118,11 +118,11 @@ def American():
         }
     })
 
-    printer.print_BeforeInfer(model=model, params=False, numbering=True)
+    Printer.print_BeforeInfer(model=model, params=False, numbering=True)
 
     steps, facts_inferred = model.infer()
 
-    printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, query=query, params=False, numbering=True)
+    Printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, query=query, params=False, numbering=True)
 
     model.plot_graph(formula_number=False, edge_variables=True, with_labels=False, arrows=True, node_size=500, font_size=9)
 

@@ -109,10 +109,10 @@ def UniversalDistributive():
         )
     )
 
-    #dictionary = decomposeFormula(query)
-    #truths = UniversalDistributive_Or(model, dictionary)
+    dictionary = decomposeFormula(query)
+    truths = UniversalDistributive_Or(model, dictionary)
 
-    #UniversalNegation_Or(model, dictionary)
+    UniversalNegation_Or(model, dictionary)
 
     model.add_knowledge(query)
 
@@ -130,9 +130,9 @@ def UniversalDistributive():
     print("__QUERY__")
     query.print()
 
-    TruthTable(model, A, B, query)
+    #TruthTable(model, A, B, query)
 
-    model.plot_graph(formula_number=False, with_labels=False, arrows=True)
+    model.plot_graph()
 
 if __name__ == "__main__":
     UniversalDistributive()
