@@ -26,8 +26,8 @@ def Distributive():
             Q
         )
     )
-    
-    
+
+
     model.add_knowledge(premise1)
 
     Printer.print_BeforeInfer(model=model, params=False, numbering=True)

@@ -812,44 +812,5 @@ def MPIDS():
 
     Executor.inferModel(model=model, query=query, filename="ModusPonensImpliesDisjunctiveSyllogism") 
 
-def imp():
-    model = Model()
-
-    P = Proposition("P")
-
-    premises = list()
-
-    premise1 = P
-    query = P
-
-    premises.append(premise1)
-
-    Executor.inferModel(model=model, premises=premises, query=(query, query.state(to_bool=True)), filename="imp") 
-
-def testt():
-    model = Model(name="testt")
-
-    P = Proposition("P")
-    Q = Proposition("Q")
-
-    a = float
-    b = float
-
-    P.add_data((a, b))
-
-    premises = list()
-
-    premise1 = Not(
-        Or(
-            P,
-            Q
-        )
-    )
-    premises.append(premise1)
-
-    query = Not(P)
-
-    Executor.inferModel(model=model, premises=premises, query=(query, Fact.UNKNOWN), filename="DeMorgan's")
-
 if __name__ == "__main__":
-    imp()
+    test22()

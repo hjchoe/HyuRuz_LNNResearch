@@ -1,0 +1,19 @@
+Model:
+     Constructive Dilemma
+
+Premises:
+     ((P → Q) ∧ (R → S)) : True
+     (P ∨ R) : True
+
+Query:
+     (Q ∨ S) : False
+
+Derivation Solution:
+     [ Q : False ]                        De Morgan's Law             from [ (Q ∨ S) : False ]                
+     [ S : False ]                        De Morgan's Law             from [ (Q ∨ S) : False ]                
+     [ (P → Q) : True ]                   Conjunctive Elimination     from [ ((P → Q) ∧ (R → S)) : True ]     
+     [ (R → S) : True ]                   Conjunctive Elimination     from [ ((P → Q) ∧ (R → S)) : True ]     
+     [ R : False ]                        Modus Tollens               from [ (R → S) : True ]                 
+     [ P : False ]                        Modus Tollens               from [ (P → Q) : True ]                 
+     [ (P ∨ R) : Fact.CONTRADICTION ]     Upward Pass                                                         
+     QED.

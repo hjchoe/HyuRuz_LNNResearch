@@ -1,0 +1,17 @@
+Model:
+     Hypothetical Syllogism using Contradiction
+
+Premises:
+     (P → Q) : True
+     (Q → R) : True
+
+Query:
+     (P → R) : False
+
+Derivation Solution:
+     [ P : True ]              Absorption 1      from [ (P → R) : False ]     
+     [ R : False ]             Absorption 2      from [ (P → R) : False ]     
+     [ Q : False ]             Modus Tollens     from [ (Q → R) : True ]      
+     [ P : CONTRADICTION ]     CONTRADICTION     from [ (P → Q) : True ]      
+     [ Q : CONTRADICTION ]     CONTRADICTION     from [ (P → Q) : True ]      
+     QED.
