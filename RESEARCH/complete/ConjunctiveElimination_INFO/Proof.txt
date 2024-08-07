@@ -1,7 +1,7 @@
 Model:
      Conjunctive Elimination
 
-Premises:
+Premise:
      (P ∧ Q) : True
 
 Query:

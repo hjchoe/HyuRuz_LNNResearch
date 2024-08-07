@@ -1,7 +1,7 @@
 Model:
      Modus Ponens
 
-Premises:
+Premise:
      (P → Q) : True
 
 Query:

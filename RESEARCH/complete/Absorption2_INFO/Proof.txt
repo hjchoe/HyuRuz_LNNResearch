@@ -1,7 +1,7 @@
 Model:
      Absorption 2
 
-Premises:
+Premise:
      ¬(P → Q) : True
 
 Query:

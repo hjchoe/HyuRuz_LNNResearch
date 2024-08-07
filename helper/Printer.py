@@ -64,7 +64,7 @@ def printModelInfoToProof(model: Model, premises: List[Formula], query: Formula)
     with open(path, 'w') as f:
         with redirect_stdout(f):
             print(f"Model:\n     {model.name}")
-            print(f"\nPremise{'s' if model.num_formulae > 1 else ''}:")
+            print(f"\nPremise{'s' if len(premises) > 1 else ''}:")
             for premise in premises:
                 print(f"     {premise.structure} : {premise.state(to_bool=True)}")
             print(f"\nQuery:\n     {query.structure} : {query.state(to_bool=True)}")

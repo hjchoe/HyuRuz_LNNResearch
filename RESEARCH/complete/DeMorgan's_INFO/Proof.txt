@@ -1,7 +1,7 @@
 Model:
      DeMorgan's Law
 
-Premises:
+Premise:
      ¬(P ∨ Q) : True
 
 Query:
