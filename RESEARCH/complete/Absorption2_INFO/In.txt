@@ -1,0 +1,21 @@
+
+<------------------------------ BEFORE INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Absorption 2
+
+4 [3]: OPEN Not: ¬Q                                             UNKNOWN (0.0, 1.0)
+params  α: 1.0
+0 [1]: AXIOM Not: ¬(P → Q)                                         TRUE (1.0, 1.0)
+params  α: 1.0
+1 [2, 3]: OPEN Implies: (P → Q)                                    UNKNOWN (0.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+3 []: OPEN Proposition: Q                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+2 []: OPEN Proposition: P                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+***************************************************************************
+
+__QUERY__
+OPEN Not: ¬Q                                             UNKNOWN (0.0, 1.0)
+params  α: 1.0

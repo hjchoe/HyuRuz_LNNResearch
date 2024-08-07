@@ -1,5 +1,6 @@
 from lnn import *
 from helper import Printer
+from helper import Executor
 
 def test1():
     model = Model()
@@ -228,10 +229,10 @@ def test8():
 
     model.add_data({
         A: {
-            'a': (0.5, 1.0)
+            'a': (0.25, 0.75)
         },
         B: {
-            'a': (0.5, 1.0)
+            'a': (0.25, 0.75)
         }
     })
 
@@ -635,7 +636,181 @@ def test19():
 
     steps, facts_inferred = model.infer()
 
-    Printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)      
+    Printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
+
+def test20():
+
+    model = Model()
+
+    A = Predicate('A')
+
+    query = And(
+        Or(
+            A,
+            Not(A)
+        ),
+        Or(
+            A,
+            Not(A)
+        )
+    )
+
+    model.add_knowledge(query)
+
+    model.add_data({
+        A: {
+            'a': (0.5, 0.5)
+        }
+    })
+
+    model.plot_graph()
+
+    Printer.print_BeforeInfer(model=model, params=False, numbering=True)
+
+    steps, facts_inferred = model.infer()
+
+    Printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
+
+def test21():
+
+    model = Model()
+
+    A = Predicate('A')
+    B = Predicate('B')
+
+    NotA1 = Not(A)
+    NotA2 = Not(A)
+
+    query = Or(
+        And(
+            Or(
+                A,
+                Not(A)
+            ),
+            B
+        ),
+        And(
+            Or(
+                A,
+                Not(A)
+            ),
+            Not(B)
+        )
+    )
+
+    model.add_knowledge(query)
+
+    model.add_data({
+        A: {
+            'a': (0.5, 0.5)
+        },
+        B: {
+            'a': (0.5, 0.5)
+        }
+    })
+
+    model.plot_graph()
+
+    Printer.print_BeforeInfer(model=model, params=False, numbering=True)
+
+    steps, facts_inferred = model.infer()
+
+    Printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
+
+def test21():
+
+    model = Model()
+
+    A = Predicate('A')
+    B = Predicate('B')
+
+    query = Or(
+        A,
+        B
+    )
+
+    model.add_knowledge(query)
+
+    model.add_data({
+        A: {
+            'a': (0.5, 0.5)
+        },
+        B: {
+            'a': (0.5, 0.5)
+        }
+    })
+
+    model.plot_graph()
+
+    Printer.print_BeforeInfer(model=model, params=False, numbering=True)
+
+    steps, facts_inferred = model.infer()
+
+    Printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
+
+def test22():
+
+    model = Model()
+
+    A = Proposition('A')
+    B = Proposition('B')
+
+    query = And(
+        Or(
+            A,
+            Not(A)
+        ),
+        Or(
+            B,
+            Not(B)
+        )
+    )
+
+    query.add_data(Fact.CONTRADICTION)
+
+    model.add_knowledge(query)
+
+    model.plot_graph()
+
+    Printer.print_BeforeInfer(model=model, params=False, numbering=True)
+
+    steps, facts_inferred = model.infer()
+
+    Printer.print_AfterInfer(model=model, steps=steps, facts_inferred=facts_inferred, params=False, numbering=True)
+
+# Modus Ponens Implies Disjunctive Syllogism
+def MPIDS():
+    P = Proposition("P")
+    Q = Proposition("Q")
+
+    P.add_data(Fact.UNKNOWN)
+    Q.add_data(Fact.UNKNOWN)
+
+    premise1 = And(
+        P,
+        Not(And(
+            P,
+            Q
+        ))
+    )
+    premise1.add_data(Fact.TRUE)
+
+    query = Not(
+        And(
+            Not(P),
+            Or(
+                P,
+                Q
+            )
+        )
+    )
+    query.add_data(Fact.UNKNOWN)
+
+    model = Model()
+
+    model.add_knowledge(P, Q, premise1)
+
+    Executor.inferModel(model=model, query=query, filename="ModusPonensImpliesDisjunctiveSyllogism") 
 
 if __name__ == "__main__":
-    test8()
+    test22()

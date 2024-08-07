@@ -1,0 +1,18 @@
+Model:
+     Testing Reasoning
+
+Premises:
+     (P ∧ Q) : True
+     ((P ∨ S) → ¬R) : True
+     (R ∨ T) : True
+
+Query:
+     T : Fact.UNKNOWN
+
+Derivation Solution:
+     [ P : True ]           Conjunctive Elimination     from [ (P ∧ Q) : True ]            
+     [ Q : True ]           Conjunctive Elimination     from [ (P ∧ Q) : True ]            
+     [ (P ∨ S) : True ]     Upward Pass                                                    
+     [ ¬R : True ]          Modus Ponens                from [ ((P ∨ S) → ¬R) : True ]     
+     [ T : True ]           Disjunctive Syllogism       from [ (R ∨ T) : True ]            
+     QED.

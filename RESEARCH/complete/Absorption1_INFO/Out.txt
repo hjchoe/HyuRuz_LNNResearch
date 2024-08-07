@@ -1,0 +1,21 @@
+
+<------------------------------ AFTER INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Absorption 1
+
+0 [1]: AXIOM Not: ¬(P → Q)                                         TRUE (1.0, 1.0)
+params  α: 1.0
+1 [2, 3]: OPEN Implies: (P → Q)                                      FALSE (0.0, 0.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+3 []: OPEN Proposition: Q                                        FALSE (0.0, 0.0)
+params  α: 1.0
+4 []: OPEN Proposition: P                                         TRUE (1.0, 1.0)
+params  α: 1.0
+***************************************************************************
+steps: 1
+facts_inferred: 3.0
+
+__QUERY__
+OPEN Proposition: P                                         TRUE (1.0, 1.0)
+params  α: 1.0

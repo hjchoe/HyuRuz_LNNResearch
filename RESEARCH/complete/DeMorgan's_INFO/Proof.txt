@@ -1,0 +1,23 @@
+Model:
+     DeMorgan's Law
+
+Premises:
+     ¬(P ∨ Q) : True
+
+Query:
+     ¬P : Fact.UNKNOWN
+
+Derivation Solution:
+     [ Q : True ]      Modus Ponens                from [ (P → Q) : True ]      
+     [ P : False ]     Modus Tollens               from [ (P → Q) : True ]      
+     [ P : True ]      Absorption 1                from [ (P → Q) : False ]     
+     [ Q : False ]     Absorption 2                from [ (P → Q) : False ]     
+     [ P : True ]      Absorption 1                from [ (P → Q) : False ]     
+     [ Q : False ]     Absorption 2                from [ (P → Q) : False ]     
+     [ P : True ]      Conjunctive Elimination     from [ (P ∧ Q) : True ]      
+     [ Q : True ]      Conjunctive Elimination     from [ (P ∧ Q) : True ]      
+     [ Q : False ]     Modus Ponendo Tollens       from [ (P ∧ Q) : False ]     
+     [ Q : True ]      Disjunctive Syllogism       from [ (P ∨ Q) : True ]      
+     [ P : False ]     De Morgan's Law             from [ (P ∨ Q) : False ]     
+     [ Q : False ]     De Morgan's Law             from [ (P ∨ Q) : False ]     
+     QED.

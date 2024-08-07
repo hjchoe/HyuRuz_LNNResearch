@@ -15,11 +15,23 @@ from .connective_formula import _ConnectiveFormula
 from .neural_activation import _NeuralActivation
 from .. import _gm
 from ... import _utils
-from ...constants import Direction
+from ...constants import Direction, Fact
 
 _utils.logger_setup()
 subclasses = {}
 
+#ADD {
+LawsOfInference = {
+    (True, True, '→'): "Modus Ponens",
+    (True, True, '∧'): "Conjunctive Elimination",
+    (True, True, '∨'): "Disjunctive Syllogism",
+    (False, False, '∨'): "De Morgan's Law",
+    (False, False, '∧'): "Modus Ponendo Tollens",
+    (False, True, '→'): "Modus Tollens",
+    (True, False, '→'): "Absorption 1",
+    (False, False, '→'): "Absorption 2"
+}
+#}
 
 def _isinstance(obj, class_str) -> bool:
     """
@@ -64,6 +76,7 @@ class _ConnectiveNeuron(_ConnectiveFormula):
             The amount of bounds tightening or new information that is leaned by the inference step.
 
         """
+        from helper.Printer import addSolStep_UpwardPass
         upward_bounds = _gm.upward_bounds(self, self.operands, groundings)
         if upward_bounds is None:  # contradiction arresting
             return 0.0
@@ -85,6 +98,9 @@ class _ConnectiveNeuron(_ConnectiveFormula):
                 f"FOR:'{self.name}' "
                 f"FORMULA:{self.formula_number} "
             )
+#ADD {
+            addSolStep_UpwardPass((self.name, self.state(to_bool=True)))
+#}
         if self.is_contradiction():
             logging.info(
                 "↑ CONTRADICTION "
@@ -114,6 +130,8 @@ class _ConnectiveNeuron(_ConnectiveFormula):
             The amount of bounds tightening or new information that is leaned by the inference step.
 
         """
+        from helper.Printer import addSolStep_Derivation
+
         downward_bounds = _gm.downward_bounds(self, self.operands, groundings)
         if downward_bounds is None:  # contradiction arresting
             return 0.0
@@ -148,6 +166,10 @@ class _ConnectiveNeuron(_ConnectiveFormula):
                 op_grounding_rows, new_bounds[..., op_index], duplicates=duplicates
             )
             if op_aggregate:
+#DEBUG {
+                #logging.info(f"({op.state(to_bool=True)} , {self.state(to_bool=True)} , {type(self)})")
+#}
+                
                 logging.info(
                     "↓ BOUNDS UPDATED "
                     f"TIGHTENED:{op_aggregate} "
@@ -156,6 +178,30 @@ class _ConnectiveNeuron(_ConnectiveFormula):
                     f"FORMULA:{op.formula_number} "
                     f"PARENT:{self.formula_number} "
                 )
+
+#ADD {
+                operatorType = None
+                if _isinstance(self, "And"):
+                    operatorType = '∧'
+                elif _isinstance(self, "Or"):
+                    operatorType = '∨'
+                elif _isinstance(self, "Implies"):
+                    operatorType = '→'
+
+                if operatorType is not None:
+                    forTruth = op.state(to_bool=True)
+                    fromTruth = self.state(to_bool=True)
+                    forTruth = "CONTRADICTION" if forTruth == Fact.CONTRADICTION else forTruth
+                    fromTruth = "CONTRADICTION" if fromTruth == Fact.CONTRADICTION else fromTruth
+                    rule = ""
+                    if not op.is_contradiction():
+                        rule = LawsOfInference[(forTruth, fromTruth, operatorType)]
+                        addSolStep_Derivation((op.name, forTruth), rule, (self.name, fromTruth))
+                    else:
+                        addSolStep_Derivation((op.name, forTruth), "CONTRADICTION", (self.name, fromTruth))
+                    logging.info(f"       Proposition [ {op.name} : {forTruth} ], derived from [ {self.name} : {fromTruth} ], using the rule {rule}")
+#}
+
             if op.is_contradiction():
                 logging.info(
                     "↓ CONTRADICTION "

@@ -190,4 +190,4 @@ class World(Enum):
     CONTRADICTION = (1.0, 0.0)
     CLOSED = (0.0, 0.0)
     FALSE = (0.0, 0.0)
-    OPEN = (0.0, 1.0)
+    OPEN = (0, 1)

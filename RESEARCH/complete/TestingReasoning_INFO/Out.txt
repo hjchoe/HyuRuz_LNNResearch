@@ -1,0 +1,33 @@
+
+<------------------------------ AFTER INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Testing Reasoning
+
+8 [7, 9]: AXIOM Or: (R ∨ T)                                           TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+10 []: OPEN Proposition: T                                         TRUE (1.0, 1.0)
+params  α: 1.0
+3 [4, 6]: AXIOM Implies: ((P ∨ S) → ¬R)                               TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+6 [7]: OPEN Not: ¬R                                                TRUE (1.0, 1.0)
+params  α: 1.0
+7 []: OPEN Proposition: R                                        FALSE (0.0, 0.0)
+params  α: 1.0
+4 [1, 5]: OPEN Or: (P ∨ S)                                            TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+5 []: OPEN Proposition: S                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+0 [1, 2]: AXIOM And: (P ∧ Q)                                          TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+2 []: OPEN Proposition: Q                                         TRUE (1.0, 1.0)
+params  α: 1.0
+1 []: OPEN Proposition: P                                         TRUE (1.0, 1.0)
+params  α: 1.0
+***************************************************************************
+steps: 3
+facts_inferred: 6.0
+
+__QUERY__
+OPEN Proposition: T                                         TRUE (1.0, 1.0)
+params  α: 1.0

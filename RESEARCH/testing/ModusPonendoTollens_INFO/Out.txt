@@ -1,0 +1,23 @@
+
+<------------------------------ AFTER INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Model
+
+4 [1]: OPEN Not: ¬Q                                                TRUE (1.0, 1.0)
+params  α: 1.0
+2 [3]: OPEN Not: ¬(P ∧ Q)                                          TRUE (1.0, 1.0)
+params  α: 1.0
+3 [0, 1]: OPEN And: (P ∧ Q)                                          FALSE (0.0, 0.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+1 []: OPEN Proposition: Q                                        FALSE (0.0, 0.0)
+params  α: 1.0
+0 []: OPEN Proposition: P                                         TRUE (1.0, 1.0)
+params  α: 1.0
+***************************************************************************
+steps: 2
+facts_inferred: 3.0
+
+__QUERY__
+OPEN Not: ¬Q                                                TRUE (1.0, 1.0)
+params  α: 1.0

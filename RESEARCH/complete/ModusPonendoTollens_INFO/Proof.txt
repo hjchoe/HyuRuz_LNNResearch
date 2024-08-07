@@ -1,0 +1,21 @@
+Model:
+     Modus Ponendo Tollens
+
+Premises:
+     P : True
+     ¬(P ∧ Q) : True
+
+Query:
+     ¬Q : Fact.UNKNOWN
+
+Derivation Solution:
+     [ Q : True ]      Modus Ponens                from [ (P → Q) : True ]      
+     [ P : False ]     Modus Tollens               from [ (P → Q) : True ]      
+     [ P : True ]      Absorption 1                from [ (P → Q) : False ]     
+     [ Q : False ]     Absorption 2                from [ (P → Q) : False ]     
+     [ P : True ]      Absorption 1                from [ (P → Q) : False ]     
+     [ Q : False ]     Absorption 2                from [ (P → Q) : False ]     
+     [ P : True ]      Conjunctive Elimination     from [ (P ∧ Q) : True ]      
+     [ Q : True ]      Conjunctive Elimination     from [ (P ∧ Q) : True ]      
+     [ Q : False ]     Modus Ponendo Tollens       from [ (P ∧ Q) : False ]     
+     QED.

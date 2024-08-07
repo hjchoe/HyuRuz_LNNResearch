@@ -515,8 +515,10 @@ class Model(nn.Module):
                 logging.info("NO UPDATES AVAILABLE, TRYING A NEW AXIOM")
             facts_inferred += bounds_diff
             steps += 1
+
             if max_steps and steps >= max_steps:
                 break
+
         logging.info("=" * 22)
         logging.info(
             f"INFERENCE CONVERGED WITH {facts_inferred} BOUNDS "

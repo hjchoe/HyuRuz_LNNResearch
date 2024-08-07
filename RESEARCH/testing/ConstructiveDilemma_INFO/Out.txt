@@ -1,0 +1,27 @@
+
+<------------------------------ AFTER INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Model
+
+8 [1, 6]: OPEN Or: (Q ∨ S)                                           FALSE (0.0, 0.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+7 [0, 5]: OPEN Or: (P ∨ R)                                   CONTRADICTION (1.0, 0.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+2 [3, 4]: OPEN And: ((P → Q) ∧ (R → S))                               TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+4 [5, 6]: OPEN Implies: (R → S)                                       TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+6 []: OPEN Proposition: S                                        FALSE (0.0, 0.0)
+params  α: 1.0
+5 []: OPEN Proposition: R                                        FALSE (0.0, 0.0)
+params  α: 1.0
+3 [0, 1]: OPEN Implies: (P → Q)                                       TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+1 []: OPEN Proposition: Q                                        FALSE (0.0, 0.0)
+params  α: 1.0
+0 []: OPEN Proposition: P                                        FALSE (0.0, 0.0)
+params  α: 1.0
+***************************************************************************
+steps: 3
+facts_inferred: 7.0

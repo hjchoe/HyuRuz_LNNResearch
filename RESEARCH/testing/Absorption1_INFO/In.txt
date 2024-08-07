@@ -1,0 +1,19 @@
+
+<------------------------------ BEFORE INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Model
+
+2 [3]: OPEN Not: ¬(P → Q)                                          TRUE (1.0, 1.0)
+params  α: 1.0
+3 [0, 1]: OPEN Implies: (P → Q)                                    UNKNOWN (0.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+1 []: OPEN Proposition: Q                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+4 []: OPEN Proposition: P                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+***************************************************************************
+
+__QUERY__
+OPEN Proposition: P                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
