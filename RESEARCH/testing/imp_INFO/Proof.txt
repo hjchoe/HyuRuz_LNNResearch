@@ -1,0 +1,10 @@
+Model:
+     Model
+
+Premise:
+     P : Fact.UNKNOWN
+
+Query:
+     P : Fact.UNKNOWN
+
+Derivation Solution:

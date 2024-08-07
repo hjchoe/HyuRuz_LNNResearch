@@ -93,6 +93,9 @@ def addSolStep_UpwardPass(operator: Tuple[str, bool]):
 def print_solution_steps():
     global solution_steps  # Use the global list to store solution steps
 
+    if len(solution_steps) == 0:
+        return
+
     dirPath = f"{filename}_INFO"
     os.makedirs(dirPath, exist_ok=True)
     path = os.path.join(dirPath, "Proof.txt")
