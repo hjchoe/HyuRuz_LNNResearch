@@ -4,20 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 ##
 
-#ADD {
-
-import sys
-import io
-import os
-
-# Set the PYTHONIOENCODING env variable
-os.environ['PYTHONIOENCODING'] = 'utf-8'
-
-# Wrap sys.stdout and sys.stderr to ensure UTF-8 encoding
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
-#}
-
 from .utils import (
     bool_to_fact,
     fact_to_bool,
