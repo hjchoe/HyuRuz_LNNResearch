@@ -1,0 +1,22 @@
+<------------------------------ BEFORE INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN HypotheticalSyllogism With Contradiction
+
+2 [1, 4, 1, 4]: OPEN Implies: (P → R)                                      FALSE (0.0, 0.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+1 [2, 4, 2, 4]: AXIOM Implies: (Q → R)                                      TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+4 []: OPEN Proposition: R                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+0 [1, 2, 1, 2]: AXIOM Implies: (P → Q)                                      TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+2 []: OPEN Proposition: Q                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+1 []: OPEN Proposition: P                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+***************************************************************************
+
+__QUERY__
+OPEN Implies: (P → R)                                      FALSE (0.0, 0.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]

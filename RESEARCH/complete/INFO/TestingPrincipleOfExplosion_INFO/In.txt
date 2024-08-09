@@ -1,0 +1,16 @@
+<------------------------------ BEFORE INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN TestingPrincipleOfExplosion
+
+2 []: OPEN Proposition: B                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+1 [0]: AXIOM Not: ¬A                                               TRUE (1.0, 1.0)
+params  α: 1.0
+0 []: AXIOM Proposition: A                                        TRUE (1.0, 1.0)
+params  α: 1.0
+***************************************************************************
+
+__QUERY__
+OPEN Proposition: B                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0

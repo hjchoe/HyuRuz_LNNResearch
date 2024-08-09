@@ -1,0 +1,23 @@
+Model:
+     TestingInconclusive
+
+Premises:
+     (P ∨ Q) : True
+     (P → Q) : True
+
+Query:
+     P : Fact.UNKNOWN
+
+Derivation Solution:
+
+     * The model was unable to converge on a solution during direct proof. Attempting PROOF BY CONTRADICTION...
+
+     [ P : FALSE ]     Proof By Contradiction                                 
+     [ Q : True ]      Disjunctive Syllogism      from [ (P ∨ Q) : True ]     
+
+     * The model was unable to converge on a solution during proof by contradiction. Attempting PROOF BY ADONIS...
+
+     [ P : TRUE ]     Proof By Adonis                                 
+     [ Q : True ]     Modus Ponens        from [ (P → Q) : True ]     
+
+     * The model has determined the QUERY is INCONCLUSIVE.

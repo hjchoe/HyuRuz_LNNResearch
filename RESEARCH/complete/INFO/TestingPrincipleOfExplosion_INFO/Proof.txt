@@ -1,0 +1,17 @@
+Model:
+     TestingPrincipleOfExplosion
+
+Premises:
+     A : True
+     ¬A : True
+
+Query:
+     B : Fact.UNKNOWN
+
+Derivation Solution:
+
+     * The model has determined the PREMISES are INCONSISTENT.
+
+     QUERY [ B ] is TRUE due to the Principle of Explosion
+
+     QED.

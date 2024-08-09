@@ -1,0 +1,18 @@
+<------------------------------ AFTER INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN TestingPrincipleOfExplosion
+
+2 []: OPEN Proposition: B                                         TRUE (1.0, 1.0)
+params  α: 1.0
+1 [0]: AXIOM Not: ¬A                                      CONTRADICTION (1.0, 0.0)
+params  α: 1.0
+0 []: AXIOM Proposition: A                               CONTRADICTION (1.0, 0.0)
+params  α: 1.0
+***************************************************************************
+steps: 2
+facts_inferred: 2.0
+
+__QUERY__
+OPEN Proposition: B                                         TRUE (1.0, 1.0)
+params  α: 1.0

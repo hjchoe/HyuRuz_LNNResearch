@@ -1,0 +1,15 @@
+Model:
+     Modus Tollens
+
+Premises:
+     ¬Q : True
+     (P → Q) : True
+
+Query:
+     ¬P : Fact.UNKNOWN
+
+Derivation Solution:
+     [ P : False ]     Modus Tollens     from [ (P → Q) : True ]     
+
+     ¬P is TRUE
+     QED.

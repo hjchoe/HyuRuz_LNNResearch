@@ -10,4 +10,6 @@ Query:
 Derivation Solution:
      [ P : True ]      Absorption 1     from [ (P → Q) : False ]     
      [ Q : False ]     Absorption 2     from [ (P → Q) : False ]     
+
+     P is TRUE
      QED.

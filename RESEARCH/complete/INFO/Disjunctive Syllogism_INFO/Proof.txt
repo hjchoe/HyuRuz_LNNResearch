@@ -1,0 +1,15 @@
+Model:
+     Disjunctive Syllogism
+
+Premises:
+     ¬P : True
+     (P ∨ Q) : True
+
+Query:
+     Q : Fact.UNKNOWN
+
+Derivation Solution:
+     [ Q : True ]     Disjunctive Syllogism     from [ (P ∨ Q) : True ]     
+
+     Q is TRUE
+     QED.

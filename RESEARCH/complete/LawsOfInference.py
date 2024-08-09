@@ -15,7 +15,7 @@ def ModusPonens():
 
     query = Q
 
-    Executor.prove(model=model, premises=premises, query=query, filename="ModusPonens")
+    Executor.prove(model=model, premises=premises, query=query)
 
 # Modus Tollens
 def ModusTollens():
@@ -31,7 +31,7 @@ def ModusTollens():
 
     query = Not(P)
 
-    Executor.prove(model=model, premises=premises, query=query, filename="ModusTollens")
+    Executor.prove(model=model, premises=premises, query=query)
 
 def Absorption1():
     model = Model(name="Absorption 1")
@@ -46,7 +46,7 @@ def Absorption1():
 
     query = P
 
-    Executor.prove(model=model, premises=premises, query=query, filename="Absorption1")
+    Executor.prove(model=model, premises=premises, query=query)
 
 def Absorption2():
     model = Model(name="Absorption 2")
@@ -61,8 +61,8 @@ def Absorption2():
 
     query = Not(Q)
 
-    Executor.prove(model=model, premises=premises, query=query, filename="Absorption2")
-
+    Executor.prove(model=model, premises=premises, query=query)
+    
 # Conjunctive Elimination
 def ConjunctiveElimination():
     model = Model(name="Conjunctive Elimination")
@@ -78,8 +78,8 @@ def ConjunctiveElimination():
 
     query = P
 
-    Executor.prove(model=model, premises=premises, query=query, filename="ConjunctiveElimination")
-
+    Executor.prove(model=model, premises=premises, query=query)
+    
 # Modus Ponendo Tollens
 def ModusPonendoTollens():
     # Initialize Model
@@ -97,8 +97,8 @@ def ModusPonendoTollens():
     # Initialize Query
     query = Not(Q)                  # ~Q
 
-    Executor.prove(model=model, premises=premises, query=query, filename="ModusPonendoTollens")
-
+    Executor.prove(model=model, premises=premises, query=query)
+    
 # Disjunctive Syllogism
 def DisjunctiveSyllogism():
     model = Model(name="Disjunctive Syllogism")
@@ -113,8 +113,8 @@ def DisjunctiveSyllogism():
 
     query = Q
 
-    Executor.prove(model=model, premises=premises, query=query, filename="DisjunctiveSyllogism")
-
+    Executor.prove(model=model, premises=premises, query=query)
+    
 # DeMorgan's Law
 def DeMorgansLaw():
     model = Model(name="DeMorgan's Law")
@@ -132,12 +132,11 @@ def DeMorgansLaw():
 
     query = Not(P)
 
-    Executor.prove(model=model, premises=premises, query=query, filename="DeMorgansLaw")
-
+    Executor.prove(model=model, premises=premises, query=query)
+    
 if __name__ == "__main__":
     Absorption1()
     Absorption2()
-    """
     ModusPonens()
     ModusTollens()
     Absorption1()
@@ -146,4 +145,3 @@ if __name__ == "__main__":
     ModusPonendoTollens()
     DisjunctiveSyllogism()
     DeMorgansLaw()
-    """

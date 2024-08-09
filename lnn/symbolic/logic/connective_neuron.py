@@ -78,6 +78,8 @@ class _ConnectiveNeuron(_ConnectiveFormula):
         """
         from helper.Printer import addSolStep_UpwardPass
         from helper.Executor import foundContradiction
+    
+        # Upward inference logic
         upward_bounds = _gm.upward_bounds(self, self.operands, groundings)
         if upward_bounds is None:  # contradiction arresting
             return 0.0
@@ -92,6 +94,8 @@ class _ConnectiveNeuron(_ConnectiveFormula):
             )
         )
         result = self.neuron.aggregate_bounds(grounding_rows, self.func(input_bounds))
+
+        # If any inferences were made during upward pass
         if result:
             logging.info(
                 "↑ BOUNDS UPDATED "
@@ -100,10 +104,13 @@ class _ConnectiveNeuron(_ConnectiveFormula):
                 f"FORMULA:{self.formula_number} "
             )
 #ADD {
-            addSolStep_UpwardPass((self.name, self.state(to_bool=True)))
+            addSolStep_UpwardPass((self.name, self.state(to_bool=True)))    # Add upward pass to solution steps list in Printer
 #}
+        # If inference result is a contradiction
         if self.is_contradiction():
-            foundContradiction()
+#ADD {
+            foundContradiction()    # Trigger contradiction found in Executor
+#}
             logging.info(
                 "↑ CONTRADICTION "
                 f"FOR:'{self.name}' "
@@ -135,6 +142,7 @@ class _ConnectiveNeuron(_ConnectiveFormula):
         from helper.Printer import addSolStep_Derivation
         from helper.Executor import foundContradiction
 
+        # Downward inference logic
         downward_bounds = _gm.downward_bounds(self, self.operands, groundings)
         if downward_bounds is None:  # contradiction arresting
             return 0.0
@@ -168,11 +176,9 @@ class _ConnectiveNeuron(_ConnectiveFormula):
             op_aggregate = op.neuron.aggregate_bounds(
                 op_grounding_rows, new_bounds[..., op_index], duplicates=duplicates
             )
-            if op_aggregate:
-#DEBUG {
-                #logging.info(f"({op.state(to_bool=True)} , {self.state(to_bool=True)} , {type(self)})")
-#}
-                
+
+            # If any inferences were made during downward pass
+            if op_aggregate:                
                 logging.info(
                     "↓ BOUNDS UPDATED "
                     f"TIGHTENED:{op_aggregate} "
@@ -181,32 +187,32 @@ class _ConnectiveNeuron(_ConnectiveFormula):
                     f"FORMULA:{op.formula_number} "
                     f"PARENT:{self.formula_number} "
                 )
-
 #ADD {
-                operatorType = None
-                if _isinstance(self, "And"):
-                    operatorType = '∧'
-                elif _isinstance(self, "Or"):
-                    operatorType = '∨'
-                elif _isinstance(self, "Implies"):
-                    operatorType = '→'
+                # Detect operator neuron type
+                operatorType = None                                         # Initialize operatorType  
+                if _isinstance(self, "And"): operatorType = '∧'             # Check Conjunction (And) [ ∧ ]
+                elif _isinstance(self, "Or"): operatorType = '∨'            # Check Disjunction (Or) [ ∨ ]
+                elif _isinstance(self, "Implies"): operatorType = '→'       # Check Implication (Implies) [ → ]
 
+                # Add law of inference to solution steps in Printer if operator type is 'And', 'Or', or 'Implies'
                 if operatorType is not None:
-                    forTruth = op.state(to_bool=True)
-                    fromTruth = self.state(to_bool=True)
-                    rule = ""
+                    forTruth = op.state(to_bool=True)                                                           # Set 'forTruth' as the operator neuron's truth value
+                    fromTruth = self.state(to_bool=True)                                                        # Set 'fromTruth' as the target operand neuron's truth value  
+                    # Find and add correct law of inference used for downward inference to solution steps in Printer if 'forTruth' and 'fromTruth' are not UNKNOWN                                        
                     if type(forTruth) == bool and type(fromTruth) == bool:
-                        rule = LawsOfInference[(forTruth, fromTruth, operatorType)]
-                        addSolStep_Derivation((op.name, forTruth), rule, (self.name, fromTruth))
+                        rule = LawsOfInference[(forTruth, fromTruth, operatorType)]                             # Check Laws of Inference dictionary for mapping to correct rule used
+                        addSolStep_Derivation((op.name, forTruth), rule, (self.name, fromTruth))                # Add correct rule to solution steps in Printer
                     else:
-                        forTruth = "CONTRADICTION" if forTruth == Fact.CONTRADICTION else forTruth
-                        fromTruth = "CONTRADICTION" if fromTruth == Fact.CONTRADICTION else fromTruth
-                        addSolStep_Derivation((op.name, forTruth), "CONTRADICTION", (self.name, fromTruth))
-                    #logging.info(f"       Proposition [ {op.name} : {forTruth} ], derived from [ {self.name} : {fromTruth} ], using the rule {rule}")
+                        forTruth =  forTruth if type(forTruth) == bool else forTruth.name                       # Convert 'forTruth' to its string if it is still an enumerator
+                        fromTruth = fromTruth if type(fromTruth) == bool else fromTruth.name                    # Convert 'fromTruth' to its string if it is still an enumerator
+                        addSolStep_Derivation((op.name, forTruth), "CONTRADICTION", (self.name, fromTruth))     # Add CONTRADICTION to solution steps in Printer
+#}
+            # If inference result is a contradiction
+            if op.is_contradiction():
+#ADD {
+                foundContradiction()    # Trigger contradiction found in Executor
 #}
 
-            if op.is_contradiction():
-                foundContradiction()
                 logging.info(
                     "↓ CONTRADICTION "
                     f"FOR:'{op.name}' "

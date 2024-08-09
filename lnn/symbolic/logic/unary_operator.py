@@ -378,6 +378,7 @@ class Not(_UnaryOperator):
         """
         from helper.Executor import foundContradiction
 
+        # Upward inference logic
         if self.propositional:
             groundings = {None}
         else:
@@ -388,8 +389,12 @@ class Not(_UnaryOperator):
         bounds = self.neuron.aggregate_bounds(
             None, _utils.negate_bounds(self.operands[0].get_data(*groundings))
         )
+
+        # If inference result is a contradiction
         if self.is_contradiction():
-            foundContradiction()
+#ADD {
+            foundContradiction()    # Trigger contradiction found in Executor
+#}
             logging.info(
                 "↑ CONTRADICTION "
                 f"FOR:'{self.name}' "
@@ -411,6 +416,7 @@ class Not(_UnaryOperator):
         """
         from helper.Executor import foundContradiction
 
+        # Downward inference logic
         if self.propositional:
             groundings = {None}
         else:
@@ -421,8 +427,12 @@ class Not(_UnaryOperator):
         bounds = self.operands[0].neuron.aggregate_bounds(
             None, _utils.negate_bounds(self.get_data(*groundings))
         )
+
+        # If inference result is a contradiction
         if self.operands[0].is_contradiction():
-            foundContradiction()
+#ADD {
+            foundContradiction()    # Trigger contradiction found in Executor
+#}
             logging.info(
                 "↓ CONTRADICTION "
                 f"FOR:'{self.operands[0].name}' "

@@ -1,0 +1,26 @@
+Model:
+     HypotheticalSyllogism
+
+Premises:
+     (P → Q) : True
+     (Q → R) : True
+
+Query:
+     (P → R) : Fact.UNKNOWN
+
+Derivation Solution:
+
+     * The model was unable to converge on a solution during direct proof. Attempting PROOF BY CONTRADICTION...
+
+     [ (P → R) : FALSE ]       Proof By Contradiction                                  
+     [ P : True ]              Absorption 1               from [ (P → R) : False ]     
+     [ R : False ]             Absorption 2               from [ (P → R) : False ]     
+     [ Q : False ]             Modus Tollens              from [ (Q → R) : True ]      
+     [ P : CONTRADICTION ]     CONTRADICTION              from [ (P → Q) : True ]      
+     [ Q : CONTRADICTION ]     CONTRADICTION              from [ (P → Q) : True ]      
+
+     * The model has found a CONTRADICTION.
+
+     QUERY [ (P → R) ] is TRUE due to Proof by Contradiction
+
+     QED.
