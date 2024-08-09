@@ -1,0 +1,18 @@
+Model:
+     Q25
+
+Premises:
+     ((W ∨ X) ∧ (Y ∨ Z)) : True
+     ¬X : True
+     ¬Y : True
+
+Query:
+     (W ∧ Z) : Fact.UNKNOWN
+
+Derivation Solution:
+     [ (W ∨ X) : True ]     Conjunctive Elimination     from [ ((W ∨ X) ∧ (Y ∨ Z)) : True ]     
+     [ (Y ∨ Z) : True ]     Conjunctive Elimination     from [ ((W ∨ X) ∧ (Y ∨ Z)) : True ]     
+     [ Z : True ]           Disjunctive Syllogism       from [ (Y ∨ Z) : True ]                 
+     [ W : True ]           Disjunctive Syllogism       from [ (W ∨ X) : True ]                 
+     [ (W ∧ Z) : True ]     Upward Pass                                                         
+     QED.

@@ -1,0 +1,15 @@
+Model:
+     Q6
+
+Premises:
+     A : True
+     (((A ∨ B) ∨ C) → D) : True
+
+Query:
+     D : Fact.UNKNOWN
+
+Derivation Solution:
+     [ (A ∨ B) : True ]           Upward Pass                                              
+     [ ((A ∨ B) ∨ C) : True ]     Upward Pass                                              
+     [ D : True ]                 Modus Ponens     from [ (((A ∨ B) ∨ C) → D) : True ]     
+     QED.

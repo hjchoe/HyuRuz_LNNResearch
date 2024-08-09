@@ -1,0 +1,27 @@
+Model:
+     Q23
+
+Premises:
+     ((A ∨ B) ∧ (¬A → ¬B)) : True
+     (A → C) : True
+     (B → D) : True
+
+Query:
+     ((C ∨ D) ∨ E) : Fact.UNKNOWN
+
+Derivation Solution:
+     [ (A ∨ B) : True ]       Conjunctive Elimination     from [ ((A ∨ B) ∧ (¬A → ¬B)) : True ]     
+     [ (¬A → ¬B) : True ]     Conjunctive Elimination     from [ ((A ∨ B) ∧ (¬A → ¬B)) : True ]     
+
+     * The model was unable to converge on a solution during direct proof. Attempting PROOF BY CONTRADICTION...
+
+     [ ((C ∨ D) ∨ E) : FALSE ]     Proof By Contradiction     QUERY                              
+     [ (C ∨ D) : False ]           De Morgan's Law            from [ ((C ∨ D) ∨ E) : False ]     
+     [ E : False ]                 De Morgan's Law            from [ ((C ∨ D) ∨ E) : False ]     
+     [ C : False ]                 De Morgan's Law            from [ (C ∨ D) : False ]           
+     [ D : False ]                 De Morgan's Law            from [ (C ∨ D) : False ]           
+     [ B : False ]                 Modus Tollens              from [ (B → D) : True ]            
+     [ A : False ]                 Modus Tollens              from [ (A → C) : True ]            
+     [ A : CONTRADICTION ]         CONTRADICTION              from [ (A ∨ B) : True ]            
+     [ B : CONTRADICTION ]         CONTRADICTION              from [ (A ∨ B) : True ]            
+     QED.

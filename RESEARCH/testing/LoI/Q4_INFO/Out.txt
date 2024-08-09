@@ -1,0 +1,29 @@
+
+<------------------------------ AFTER INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Q4
+
+7 [1]: AXIOM Not: ¬P                                               TRUE (1.0, 1.0)
+params  α: 1.0
+5 [4, 6]: AXIOM Implies: (R → S)                                      TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+8 []: OPEN Proposition: S                                         TRUE (1.0, 1.0)
+params  α: 1.0
+3 [2, 4]: AXIOM Implies: (Q → R)                                      TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+4 []: OPEN Proposition: R                                         TRUE (1.0, 1.0)
+params  α: 1.0
+0 [1, 2]: AXIOM Or: (P ∨ Q)                                           TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+2 []: OPEN Proposition: Q                                         TRUE (1.0, 1.0)
+params  α: 1.0
+1 []: OPEN Proposition: P                                        FALSE (0.0, 0.0)
+params  α: 1.0
+***************************************************************************
+steps: 3
+facts_inferred: 4.0
+
+__QUERY__
+OPEN Proposition: S                                         TRUE (1.0, 1.0)
+params  α: 1.0

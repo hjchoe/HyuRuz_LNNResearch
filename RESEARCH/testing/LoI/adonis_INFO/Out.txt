@@ -1,0 +1,25 @@
+
+<------------------------------ AFTER INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN adonis With Contradiction
+
+2 [2, 4, 2, 6]: AXIOM Implies: (B → C)                                      TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+1 [1, 4, 1, 6]: AXIOM Implies: (A → C)                                      TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+3 []: OPEN Proposition: C                                        FALSE (0.0, 0.0)
+params  α: 1.0
+0 [1, 2, 1, 2]: AXIOM Or: (A ∨ B)                                           TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+2 []: OPEN Proposition: B                                CONTRADICTION (1.0, 0.0)
+params  α: 1.0
+1 []: OPEN Proposition: A                                CONTRADICTION (1.0, 0.0)
+params  α: 1.0
+***************************************************************************
+steps: 2
+facts_inferred: 4.0
+
+__QUERY__
+OPEN Proposition: C                                        FALSE (0.0, 0.0)
+params  α: 1.0

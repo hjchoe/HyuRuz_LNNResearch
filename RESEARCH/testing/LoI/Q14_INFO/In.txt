@@ -1,0 +1,25 @@
+
+<------------------------------ BEFORE INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Q14
+
+6 [1]: OPEN Not: ¬A                                             UNKNOWN (0.0, 1.0)
+params  α: 1.0
+3 [4, 5]: AXIOM And: (¬B ∧ C)                                         TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+5 []: OPEN Proposition: C                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+4 [2]: OPEN Not: ¬B                                             UNKNOWN (0.0, 1.0)
+params  α: 1.0
+0 [1, 2]: AXIOM Implies: (A → B)                                      TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+2 []: OPEN Proposition: B                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+1 []: OPEN Proposition: A                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+***************************************************************************
+
+__QUERY__
+OPEN Not: ¬A                                             UNKNOWN (0.0, 1.0)
+params  α: 1.0

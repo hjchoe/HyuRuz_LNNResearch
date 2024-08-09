@@ -1,0 +1,31 @@
+
+<------------------------------ BEFORE INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Q3
+
+9 [6]: AXIOM Not: ¬S                                               TRUE (1.0, 1.0)
+params  α: 1.0
+8 [3]: AXIOM Not: ¬Q                                               TRUE (1.0, 1.0)
+params  α: 1.0
+7 [1]: AXIOM Not: ¬P                                               TRUE (1.0, 1.0)
+params  α: 1.0
+0 [1, 2]: AXIOM Or: (P ∨ (Q ∨ (R ∨ S)))                               TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+2 [3, 4]: OPEN Or: (Q ∨ (R ∨ S))                                   UNKNOWN (0.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+4 [5, 6]: OPEN Or: (R ∨ S)                                         UNKNOWN (0.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+6 []: OPEN Proposition: S                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+10 []: OPEN Proposition: R                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+3 []: OPEN Proposition: Q                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+1 []: OPEN Proposition: P                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+***************************************************************************
+
+__QUERY__
+OPEN Proposition: R                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0

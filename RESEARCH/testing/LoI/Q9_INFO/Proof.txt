@@ -1,0 +1,15 @@
+Model:
+     Q9
+
+Premises:
+     (X → Y) : True
+     (Y → Z) : True
+     ¬Z : True
+
+Query:
+     ¬X : Fact.UNKNOWN
+
+Derivation Solution:
+     [ Y : False ]     Modus Tollens     from [ (Y → Z) : True ]     
+     [ X : False ]     Modus Tollens     from [ (X → Y) : True ]     
+     QED.

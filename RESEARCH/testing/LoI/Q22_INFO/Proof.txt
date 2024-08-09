@@ -1,0 +1,18 @@
+Model:
+     Q22
+
+Premises:
+     (Q ∧ R ∧ S) : True
+     (Q → P) : True
+
+Query:
+     ((P ∨ R) ∨ S) : Fact.UNKNOWN
+
+Derivation Solution:
+     [ Q : True ]                 Conjunctive Elimination     from [ (Q ∧ R ∧ S) : True ]     
+     [ R : True ]                 Conjunctive Elimination     from [ (Q ∧ R ∧ S) : True ]     
+     [ S : True ]                 Conjunctive Elimination     from [ (Q ∧ R ∧ S) : True ]     
+     [ (P ∨ R) : True ]           Upward Pass                                                 
+     [ ((P ∨ R) ∨ S) : True ]     Upward Pass                                                 
+     [ P : True ]                 Modus Ponens                from [ (Q → P) : True ]         
+     QED.

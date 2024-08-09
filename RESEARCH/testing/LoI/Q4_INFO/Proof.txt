@@ -1,0 +1,17 @@
+Model:
+     Q4
+
+Premises:
+     (P ∨ Q) : True
+     (Q → R) : True
+     (R → S) : True
+     ¬P : True
+
+Query:
+     S : Fact.UNKNOWN
+
+Derivation Solution:
+     [ Q : True ]     Disjunctive Syllogism     from [ (P ∨ Q) : True ]     
+     [ R : True ]     Modus Ponens              from [ (Q → R) : True ]     
+     [ S : True ]     Modus Ponens              from [ (R → S) : True ]     
+     QED.

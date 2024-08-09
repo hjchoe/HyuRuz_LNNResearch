@@ -1,0 +1,16 @@
+Model:
+     Q21
+
+Premises:
+     ((A → B) ∧ (B → C)) : True
+     ¬C : True
+
+Query:
+     ¬A : Fact.UNKNOWN
+
+Derivation Solution:
+     [ (A → B) : True ]     Conjunctive Elimination     from [ ((A → B) ∧ (B → C)) : True ]     
+     [ (B → C) : True ]     Conjunctive Elimination     from [ ((A → B) ∧ (B → C)) : True ]     
+     [ B : False ]          Modus Tollens               from [ (B → C) : True ]                 
+     [ A : False ]          Modus Tollens               from [ (A → B) : True ]                 
+     QED.

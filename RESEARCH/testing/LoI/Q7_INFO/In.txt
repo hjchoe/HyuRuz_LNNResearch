@@ -1,0 +1,29 @@
+
+<------------------------------ BEFORE INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Q7
+
+8 [4]: AXIOM Not: ¬B                                               TRUE (1.0, 1.0)
+params  α: 1.0
+7 [6]: AXIOM Not: ¬D                                               TRUE (1.0, 1.0)
+params  α: 1.0
+5 [1, 6]: AXIOM Or: (C ∨ D)                                           TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+6 []: OPEN Proposition: D                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+0 [1, 2]: AXIOM Implies: (C → (A ∨ B))                                TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+2 [3, 4]: OPEN Or: (A ∨ B)                                         UNKNOWN (0.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+4 []: OPEN Proposition: B                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+9 []: OPEN Proposition: A                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+1 []: OPEN Proposition: C                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+***************************************************************************
+
+__QUERY__
+OPEN Proposition: A                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0

@@ -1,0 +1,14 @@
+Model:
+     Q1
+
+Premises:
+     (P → Q) : True
+     P : True
+
+Query:
+     (Q ∨ R) : Fact.UNKNOWN
+
+Derivation Solution:
+     [ Q : True ]           Modus Ponens     from [ (P → Q) : True ]     
+     [ (Q ∨ R) : True ]     Upward Pass                                  
+     QED.

@@ -1,0 +1,25 @@
+
+<------------------------------ AFTER INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Q13
+
+3 [4, 5]: AXIOM Implies: ((X ∨ Y) → Z)                                TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+6 []: OPEN Proposition: Z                                         TRUE (1.0, 1.0)
+params  α: 1.0
+4 [1, 2]: OPEN Or: (X ∨ Y)                                            TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+0 [1, 2]: AXIOM And: (X ∧ Y)                                          TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+2 []: OPEN Proposition: Y                                         TRUE (1.0, 1.0)
+params  α: 1.0
+1 []: OPEN Proposition: X                                         TRUE (1.0, 1.0)
+params  α: 1.0
+***************************************************************************
+steps: 2
+facts_inferred: 4.0
+
+__QUERY__
+OPEN Proposition: Z                                         TRUE (1.0, 1.0)
+params  α: 1.0

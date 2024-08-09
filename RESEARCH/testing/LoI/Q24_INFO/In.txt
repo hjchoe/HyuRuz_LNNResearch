@@ -1,0 +1,31 @@
+
+<------------------------------ BEFORE INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Q24
+
+9 [3]: OPEN Not: ¬q                                             UNKNOWN (0.0, 1.0)
+params  α: 1.0
+8 [7]: AXIOM Not: ¬s                                               TRUE (1.0, 1.0)
+params  α: 1.0
+5 [1, 6]: AXIOM And: (p ∧ (r → s))                                    TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+6 [4, 7]: OPEN Implies: (r → s)                                    UNKNOWN (0.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+7 []: OPEN Proposition: s                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+0 [1, 2]: AXIOM And: (p ∧ (q → r))                                    TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+2 [3, 4]: OPEN Implies: (q → r)                                    UNKNOWN (0.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+4 []: OPEN Proposition: r                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+3 []: OPEN Proposition: q                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+1 []: OPEN Proposition: p                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+***************************************************************************
+
+__QUERY__
+OPEN Not: ¬q                                             UNKNOWN (0.0, 1.0)
+params  α: 1.0

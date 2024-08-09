@@ -1,0 +1,33 @@
+
+<------------------------------ AFTER INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Q25
+
+9 [2, 6]: OPEN And: (W ∧ Z)                                           TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+8 [5]: AXIOM Not: ¬Y                                               TRUE (1.0, 1.0)
+params  α: 1.0
+7 [3]: AXIOM Not: ¬X                                               TRUE (1.0, 1.0)
+params  α: 1.0
+0 [1, 4]: AXIOM And: ((W ∨ X) ∧ (Y ∨ Z))                              TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+4 [5, 6]: OPEN Or: (Y ∨ Z)                                            TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+6 []: OPEN Proposition: Z                                         TRUE (1.0, 1.0)
+params  α: 1.0
+5 []: OPEN Proposition: Y                                        FALSE (0.0, 0.0)
+params  α: 1.0
+1 [2, 3]: OPEN Or: (W ∨ X)                                            TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+3 []: OPEN Proposition: X                                        FALSE (0.0, 0.0)
+params  α: 1.0
+2 []: OPEN Proposition: W                                         TRUE (1.0, 1.0)
+params  α: 1.0
+***************************************************************************
+steps: 2
+facts_inferred: 7.0
+
+__QUERY__
+OPEN And: (W ∧ Z)                                           TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]

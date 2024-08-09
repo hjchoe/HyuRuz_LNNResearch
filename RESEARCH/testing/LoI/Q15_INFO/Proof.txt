@@ -1,0 +1,27 @@
+Model:
+     Q15
+
+Premises:
+     ((A → B) ∨ (C → D)) : True
+     ¬(A → B) : True
+     (D → B) : True
+     C : True
+
+Query:
+     B : Fact.UNKNOWN
+
+Derivation Solution:
+
+     * The model was unable to converge on a solution during direct proof. Attempting PROOF BY CONTRADICTION...
+
+     [ B : FALSE ]           Known                     Proof By Contradiction                  
+     [ D : False ]           Modus Tollens             from [ (D → B) : True ]                 
+     [ (C → D) : False ]     Upward Pass                                                       
+     [ (A → B) : True ]      Disjunctive Syllogism     from [ ((A → B) ∨ (C → D)) : True ]     
+     [ A : False ]           Modus Tollens             from [ (A → B) : True ]                 
+
+     * The model was unable to converge on a solution during proof by contradiction. Attempting REVERSE DIRECT PROOF...
+
+     [ B : TRUE ]     Known     Reverse Direct Proof     
+
+     * The model has determined the QUERY is INCONCLUSIVE.

@@ -1,0 +1,26 @@
+Model:
+     Check3
+
+Premises:
+     (A → B) : True
+     (B → C) : True
+
+Query:
+     (A → C) : Fact.UNKNOWN
+
+Derivation Solution:
+
+     * The model was unable to converge on a solution during direct proof. Attempting PROOF BY CONTRADICTION...
+
+     [ (A → C) : FALSE ]       Proof By Contradiction                                  
+     [ A : True ]              Absorption 1               from [ (A → C) : False ]     
+     [ C : False ]             Absorption 2               from [ (A → C) : False ]     
+     [ B : False ]             Modus Tollens              from [ (B → C) : True ]      
+     [ A : CONTRADICTION ]     CONTRADICTION              from [ (A → B) : True ]      
+     [ B : CONTRADICTION ]     CONTRADICTION              from [ (A → B) : True ]      
+
+     * The model has found a CONTRADICTION.
+
+     QUERY [ (A → C) ] is TRUE due to Proof by Contradiction
+
+     QED.

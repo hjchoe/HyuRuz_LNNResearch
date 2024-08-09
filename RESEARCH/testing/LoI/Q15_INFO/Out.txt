@@ -1,0 +1,31 @@
+
+<------------------------------ AFTER INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Q15 With Contradiction With Reverse Direct
+
+2 [6, 3, 6, 11, 6, 4]: AXIOM Implies: (D → B)                                      TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+1 [8, 8, 8]: AXIOM Not: ¬(A → B)                                         TRUE (1.0, 1.0)
+params  α: 1.0
+0 [1, 4, 1, 4, 1, 4]: AXIOM Or: ((A → B) ∨ (C → D))                               TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+4 [5, 6]: OPEN Implies: (C → D)                                      FALSE (0.0, 0.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+6 []: OPEN Proposition: D                                        FALSE (0.0, 0.0)
+params  α: 1.0
+3 []: AXIOM Proposition: C                                        TRUE (1.0, 1.0)
+params  α: 1.0
+1 [2, 3]: OPEN Implies: (A → B)                                       TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+4 []: OPEN Proposition: B                                         TRUE (1.0, 1.0)
+params  α: 1.0
+2 []: OPEN Proposition: A                                        FALSE (0.0, 0.0)
+params  α: 1.0
+***************************************************************************
+steps: 1
+facts_inferred: 0.0
+
+__QUERY__
+OPEN Proposition: B                                         TRUE (1.0, 1.0)
+params  α: 1.0

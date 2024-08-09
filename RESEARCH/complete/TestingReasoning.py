@@ -4,38 +4,22 @@ from helper import Executor
 def TestingReasoning():
     model = Model(name="Testing Reasoning")
 
-    P = Proposition("P")
-    Q = Proposition("Q")
-    R = Proposition("R")
-    S = Proposition("S")
-    T = Proposition("T")
+    P,Q,R,S,T = Propositions('P','Q','R','S','T')
 
-    premises = list()
-
-    premise1 = And(
-        P,
-        Q
-    )
-    premises.append(premise1)
+    premise1 = And(P, Q)
 
     premise2 = Implies(
-        Or(
-            P,
-            S
-        ),
+        Or(P, S),
         Not(R)
     )
-    premises.append(premise2)
 
-    premise3 = Or(
-        R,
-        T
-    )
-    premises.append(premise3)
+    premise3 = Or(R,T)
+
+    premises = [premise1, premise2, premise3]
 
     query = T
 
-    Executor.inferModel(model=model, premises=premises, query=(query, Fact.UNKNOWN), filename="TestingReasoning") 
+    Executor.prove(model=model, premises=premises, query=query, filename="TestingReasoning") 
 
 if __name__ == "__main__":
     TestingReasoning()

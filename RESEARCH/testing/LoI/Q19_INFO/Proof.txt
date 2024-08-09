@@ -1,0 +1,18 @@
+Model:
+     Q19
+
+Premises:
+     ((A ∨ B) ∧ (C → D)) : True
+     ¬B : True
+     ¬D : True
+
+Query:
+     (A ∧ ¬C) : Fact.UNKNOWN
+
+Derivation Solution:
+     [ (A ∨ B) : True ]      Conjunctive Elimination     from [ ((A ∨ B) ∧ (C → D)) : True ]     
+     [ (C → D) : True ]      Conjunctive Elimination     from [ ((A ∨ B) ∧ (C → D)) : True ]     
+     [ C : False ]           Modus Tollens               from [ (C → D) : True ]                 
+     [ A : True ]            Disjunctive Syllogism       from [ (A ∨ B) : True ]                 
+     [ (A ∧ ¬C) : True ]     Upward Pass                                                         
+     QED.

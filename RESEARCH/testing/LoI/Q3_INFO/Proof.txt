@@ -1,0 +1,17 @@
+Model:
+     Q3
+
+Premises:
+     (P ∨ (Q ∨ (R ∨ S))) : True
+     ¬P : True
+     ¬Q : True
+     ¬S : True
+
+Query:
+     R : Fact.UNKNOWN
+
+Derivation Solution:
+     [ (Q ∨ (R ∨ S)) : True ]     Disjunctive Syllogism     from [ (P ∨ (Q ∨ (R ∨ S))) : True ]     
+     [ (R ∨ S) : True ]           Disjunctive Syllogism     from [ (Q ∨ (R ∨ S)) : True ]           
+     [ R : True ]                 Disjunctive Syllogism     from [ (R ∨ S) : True ]                 
+     QED.

@@ -1,0 +1,17 @@
+Model:
+     Q7
+
+Premises:
+     (C → (A ∨ B)) : True
+     (C ∨ D) : True
+     ¬D : True
+     ¬B : True
+
+Query:
+     A : Fact.UNKNOWN
+
+Derivation Solution:
+     [ C : True ]           Disjunctive Syllogism     from [ (C ∨ D) : True ]           
+     [ (A ∨ B) : True ]     Modus Ponens              from [ (C → (A ∨ B)) : True ]     
+     [ A : True ]           Disjunctive Syllogism     from [ (A ∨ B) : True ]           
+     QED.

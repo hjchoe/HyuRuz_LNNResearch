@@ -1,0 +1,25 @@
+
+<------------------------------ BEFORE INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Q9
+
+6 [1]: OPEN Not: ¬X                                             UNKNOWN (0.0, 1.0)
+params  α: 1.0
+5 [4]: AXIOM Not: ¬Z                                               TRUE (1.0, 1.0)
+params  α: 1.0
+3 [2, 4]: AXIOM Implies: (Y → Z)                                      TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+4 []: OPEN Proposition: Z                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+0 [1, 2]: AXIOM Implies: (X → Y)                                      TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+2 []: OPEN Proposition: Y                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+1 []: OPEN Proposition: X                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+***************************************************************************
+
+__QUERY__
+OPEN Not: ¬X                                             UNKNOWN (0.0, 1.0)
+params  α: 1.0

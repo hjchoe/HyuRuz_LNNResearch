@@ -1,0 +1,17 @@
+Model:
+     adonis2
+
+Premises:
+     ¬B : True
+     (D → B) : True
+     C : True
+
+Query:
+     (C → D) : Fact.UNKNOWN
+
+Derivation Solution:
+     [ D : False ]           Modus Tollens     from [ (D → B) : True ]     
+     [ (C → D) : False ]     Upward Pass                                   
+
+     (C → D) is TRUE
+     QED.

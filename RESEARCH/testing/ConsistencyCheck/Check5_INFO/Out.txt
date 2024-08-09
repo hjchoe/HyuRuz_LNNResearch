@@ -1,0 +1,21 @@
+
+<------------------------------ AFTER INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Check5 With Contradiction With Adonis
+
+1 [1, 2, 4, 2, 2, 2]: AXIOM Implies: (P → Q)                                      TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+0 [1, 2, 4, 2, 2, 2]: AXIOM Or: (P ∨ Q)                                           TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+2 []: OPEN Proposition: Q                                         TRUE (1.0, 1.0)
+params  α: 1.0
+2 []: OPEN Proposition: P                                         TRUE (1.0, 1.0)
+params  α: 1.0
+***************************************************************************
+steps: 2
+facts_inferred: 1.0
+
+__QUERY__
+OPEN Proposition: P                                         TRUE (1.0, 1.0)
+params  α: 1.0

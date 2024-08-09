@@ -1,0 +1,15 @@
+Model:
+     Q16
+
+Premises:
+     X : True
+     (X → Y) : True
+     (W → Z) : True
+
+Query:
+     (Y ∨ Z) : Fact.UNKNOWN
+
+Derivation Solution:
+     [ Y : True ]           Modus Ponens     from [ (X → Y) : True ]     
+     [ (Y ∨ Z) : True ]     Upward Pass                                  
+     QED.

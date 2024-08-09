@@ -1,0 +1,18 @@
+Model:
+     Q10
+
+Premises:
+     ((P → Q) ∧ (R → S)) : True
+     P : True
+     R : True
+
+Query:
+     (Q ∧ S) : Fact.UNKNOWN
+
+Derivation Solution:
+     [ (P → Q) : True ]     Conjunctive Elimination     from [ ((P → Q) ∧ (R → S)) : True ]     
+     [ (R → S) : True ]     Conjunctive Elimination     from [ ((P → Q) ∧ (R → S)) : True ]     
+     [ S : True ]           Modus Ponens                from [ (R → S) : True ]                 
+     [ Q : True ]           Modus Ponens                from [ (P → Q) : True ]                 
+     [ (Q ∧ S) : True ]     Upward Pass                                                         
+     QED.

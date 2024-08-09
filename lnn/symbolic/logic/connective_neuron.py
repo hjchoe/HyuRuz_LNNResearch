@@ -77,6 +77,7 @@ class _ConnectiveNeuron(_ConnectiveFormula):
 
         """
         from helper.Printer import addSolStep_UpwardPass
+        from helper.Executor import foundContradiction
         upward_bounds = _gm.upward_bounds(self, self.operands, groundings)
         if upward_bounds is None:  # contradiction arresting
             return 0.0
@@ -102,6 +103,7 @@ class _ConnectiveNeuron(_ConnectiveFormula):
             addSolStep_UpwardPass((self.name, self.state(to_bool=True)))
 #}
         if self.is_contradiction():
+            foundContradiction()
             logging.info(
                 "↑ CONTRADICTION "
                 f"FOR:'{self.name}' "
@@ -131,6 +133,7 @@ class _ConnectiveNeuron(_ConnectiveFormula):
 
         """
         from helper.Printer import addSolStep_Derivation
+        from helper.Executor import foundContradiction
 
         downward_bounds = _gm.downward_bounds(self, self.operands, groundings)
         if downward_bounds is None:  # contradiction arresting
@@ -191,18 +194,19 @@ class _ConnectiveNeuron(_ConnectiveFormula):
                 if operatorType is not None:
                     forTruth = op.state(to_bool=True)
                     fromTruth = self.state(to_bool=True)
-                    forTruth = "CONTRADICTION" if forTruth == Fact.CONTRADICTION else forTruth
-                    fromTruth = "CONTRADICTION" if fromTruth == Fact.CONTRADICTION else fromTruth
                     rule = ""
-                    if not op.is_contradiction():
+                    if type(forTruth) == bool and type(fromTruth) == bool:
                         rule = LawsOfInference[(forTruth, fromTruth, operatorType)]
                         addSolStep_Derivation((op.name, forTruth), rule, (self.name, fromTruth))
                     else:
+                        forTruth = "CONTRADICTION" if forTruth == Fact.CONTRADICTION else forTruth
+                        fromTruth = "CONTRADICTION" if fromTruth == Fact.CONTRADICTION else fromTruth
                         addSolStep_Derivation((op.name, forTruth), "CONTRADICTION", (self.name, fromTruth))
-                    logging.info(f"       Proposition [ {op.name} : {forTruth} ], derived from [ {self.name} : {fromTruth} ], using the rule {rule}")
+                    #logging.info(f"       Proposition [ {op.name} : {forTruth} ], derived from [ {self.name} : {fromTruth} ], using the rule {rule}")
 #}
 
             if op.is_contradiction():
+                foundContradiction()
                 logging.info(
                     "↓ CONTRADICTION "
                     f"FOR:'{op.name}' "

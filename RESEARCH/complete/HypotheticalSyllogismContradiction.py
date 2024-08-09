@@ -3,31 +3,21 @@ from helper import Executor
 
 def HypotheticalSyllogismContradiction():
     """
-    Proving Transitivity Using Proof by Contradiction
+    Proving Transitivity Using Proof by Contradiction Example
     """
-    model = Model(name="Hypothetical Syllogism using Contradiction")
+    model = Model(name="Hypothetical Syllogism")
 
-    P = Proposition("P")
-    Q = Proposition("Q")
-    R = Proposition("R")
+    P,Q,R = Propositions('P','Q','R')
 
-    premises = list()
+    premise1 = Implies(P, Q)
 
-    premise1 = Implies(
-        P,
-        Q
-    )
-    premises.append(premise1)
+    premise2 = Implies(Q, R)
 
-    premise2 = Implies(
-        Q,
-        R
-    )
-    premises.append(premise2)
+    premises = [premise1, premise2]
 
     query = Implies(P, R)
 
-    Executor.inferModel(model=model, premises=premises, query=(query, Fact.FALSE), filename="HypotheticalSyllogismContradiction") 
+    Executor.prove(model=model, premises=premises, query=query, filename="HypotheticalSyllogism") 
 
 if __name__ == "__main__":
     HypotheticalSyllogismContradiction()

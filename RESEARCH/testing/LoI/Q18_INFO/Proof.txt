@@ -1,0 +1,17 @@
+Model:
+     Q18
+
+Premises:
+     (W ∧ X) : True
+     (Y ∧ Z) : True
+
+Query:
+     (X ∧ Y) : Fact.UNKNOWN
+
+Derivation Solution:
+     [ Y : True ]           Conjunctive Elimination     from [ (Y ∧ Z) : True ]     
+     [ Z : True ]           Conjunctive Elimination     from [ (Y ∧ Z) : True ]     
+     [ W : True ]           Conjunctive Elimination     from [ (W ∧ X) : True ]     
+     [ X : True ]           Conjunctive Elimination     from [ (W ∧ X) : True ]     
+     [ (X ∧ Y) : True ]     Upward Pass                                             
+     QED.

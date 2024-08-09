@@ -1,0 +1,21 @@
+Model:
+     leder
+
+Premise:
+     ((P → Q) ∧ (R → Q) ∧ (R → S) ∧ P) : True
+
+Query:
+     ((P → Q) ∧ S) : Fact.UNKNOWN
+
+Derivation Solution:
+     [ (P → Q) : True ]     Conjunctive Elimination     from [ ((P → Q) ∧ (R → Q) ∧ (R → S) ∧ P) : True ]     
+     [ (R → Q) : True ]     Conjunctive Elimination     from [ ((P → Q) ∧ (R → Q) ∧ (R → S) ∧ P) : True ]     
+     [ (R → S) : True ]     Conjunctive Elimination     from [ ((P → Q) ∧ (R → Q) ∧ (R → S) ∧ P) : True ]     
+     [ P : True ]           Conjunctive Elimination     from [ ((P → Q) ∧ (R → Q) ∧ (R → S) ∧ P) : True ]     
+     [ Q : True ]           Modus Ponens                from [ (P → Q) : True ]                               
+
+     * The model was unable to converge on a solution during direct proof. Attempting PROOF BY CONTRADICTION...
+
+     [ ((P → Q) ∧ S) : FALSE ]     Proof By Contradiction     QUERY     
+
+     * The model has determined system is logically INCONSISTENT.

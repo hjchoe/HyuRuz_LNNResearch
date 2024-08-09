@@ -1,0 +1,18 @@
+Model:
+     Q24
+
+Premises:
+     (p ∧ (q → r)) : True
+     (p ∧ (r → s)) : True
+     ¬s : True
+
+Query:
+     ¬q : Fact.UNKNOWN
+
+Derivation Solution:
+     [ p : True ]           Conjunctive Elimination     from [ (p ∧ (r → s)) : True ]     
+     [ (r → s) : True ]     Conjunctive Elimination     from [ (p ∧ (r → s)) : True ]     
+     [ r : False ]          Modus Tollens               from [ (r → s) : True ]           
+     [ (q → r) : True ]     Conjunctive Elimination     from [ (p ∧ (q → r)) : True ]     
+     [ q : False ]          Modus Tollens               from [ (q → r) : True ]           
+     QED.

@@ -1,0 +1,18 @@
+Model:
+     Q12
+
+Premises:
+     ((A ∧ B) ∧ C) : True
+     (A → D) : True
+
+Query:
+     (D ∨ E) : Fact.UNKNOWN
+
+Derivation Solution:
+     [ (A ∧ B) : True ]     Conjunctive Elimination     from [ ((A ∧ B) ∧ C) : True ]     
+     [ C : True ]           Conjunctive Elimination     from [ ((A ∧ B) ∧ C) : True ]     
+     [ A : True ]           Conjunctive Elimination     from [ (A ∧ B) : True ]           
+     [ B : True ]           Conjunctive Elimination     from [ (A ∧ B) : True ]           
+     [ D : True ]           Modus Ponens                from [ (A → D) : True ]           
+     [ (D ∨ E) : True ]     Upward Pass                                                   
+     QED.

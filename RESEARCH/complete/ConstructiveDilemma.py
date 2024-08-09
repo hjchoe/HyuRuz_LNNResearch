@@ -4,34 +4,20 @@ from helper import Executor
 def ConstructiveDilemma():
     model = Model(name="Constructive Dilemma")
 
-    P = Proposition("P")
-    Q = Proposition("Q")
-    R = Proposition("R")
-    S = Proposition("S")
-
-    premises = list()
+    P,Q,R,S = Propositions('P','Q','R','S')
 
     premise1 = And(
-        Implies(
-            P,
-            Q
-        ),
-        Implies(
-            R,
-            S
-        )
+        Implies(P, Q),
+        Implies(R, S)
     )
-    premises.append(premise1)
 
-    premise2 = Or(
-        P,
-        R
-    )
-    premises.append(premise2)
+    premise2 = Or(P, R)
+
+    premises = [premise1, premise2]
 
     query = Or(Q, S)
 
-    Executor.inferModel(model=model, premises=premises, query=(query, Fact.FALSE), filename="ConstructiveDilemma") 
+    Executor.prove(model=model, premises=premises, query=query, filename="ConstructiveDilemma") 
 
 if __name__ == "__main__":
     ConstructiveDilemma()

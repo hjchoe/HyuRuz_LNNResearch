@@ -376,6 +376,7 @@ class Not(_UnaryOperator):
             The amount of bounds tightening or new information that is leaned by the inference step.
 
         """
+        from helper.Executor import foundContradiction
 
         if self.propositional:
             groundings = {None}
@@ -388,6 +389,7 @@ class Not(_UnaryOperator):
             None, _utils.negate_bounds(self.operands[0].get_data(*groundings))
         )
         if self.is_contradiction():
+            foundContradiction()
             logging.info(
                 "↑ CONTRADICTION "
                 f"FOR:'{self.name}' "
@@ -407,6 +409,7 @@ class Not(_UnaryOperator):
             The amount of bounds tightening or new information that is leaned by the inference step.
 
         """
+        from helper.Executor import foundContradiction
 
         if self.propositional:
             groundings = {None}
@@ -419,6 +422,7 @@ class Not(_UnaryOperator):
             None, _utils.negate_bounds(self.get_data(*groundings))
         )
         if self.operands[0].is_contradiction():
+            foundContradiction()
             logging.info(
                 "↓ CONTRADICTION "
                 f"FOR:'{self.operands[0].name}' "

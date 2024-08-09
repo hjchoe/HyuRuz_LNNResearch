@@ -1,0 +1,16 @@
+Model:
+     Q11
+
+Premises:
+     ((W ∨ X) → (Y ∨ Z)) : True
+     W : True
+     ¬Z : True
+
+Query:
+     Y : Fact.UNKNOWN
+
+Derivation Solution:
+     [ (W ∨ X) : True ]     Upward Pass                                                       
+     [ (Y ∨ Z) : True ]     Modus Ponens              from [ ((W ∨ X) → (Y ∨ Z)) : True ]     
+     [ Y : True ]           Disjunctive Syllogism     from [ (Y ∨ Z) : True ]                 
+     QED.

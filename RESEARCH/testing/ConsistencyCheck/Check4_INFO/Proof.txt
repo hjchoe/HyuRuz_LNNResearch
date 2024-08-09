@@ -1,0 +1,28 @@
+Model:
+     Check4
+
+Premises:
+     (A → B) : True
+     (B → C) : True
+
+Query:
+     ¬(A → C) : Fact.UNKNOWN
+
+Derivation Solution:
+
+     * The model was unable to converge on a solution during direct proof. Attempting PROOF BY CONTRADICTION...
+
+     [ ¬(A → C) : FALSE ]     Proof By Contradiction          
+
+     * The model was unable to converge on a solution during proof by contradiction. Attempting PROOF BY ADONIS...
+
+     [ ¬(A → C) : TRUE ]       Proof By Adonis                                  
+     [ A : True ]              Absorption 1        from [ (A → C) : False ]     
+     [ C : False ]             Absorption 2        from [ (A → C) : False ]     
+     [ B : False ]             Modus Tollens       from [ (B → C) : True ]      
+     [ A : CONTRADICTION ]     CONTRADICTION       from [ (A → B) : True ]      
+     [ B : CONTRADICTION ]     CONTRADICTION       from [ (A → B) : True ]      
+
+     * The model has determined the QUERY is INCONSISTENT with the premises.
+
+     QED.

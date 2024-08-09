@@ -1,0 +1,16 @@
+Model:
+     Q13
+
+Premises:
+     (X ∧ Y) : True
+     ((X ∨ Y) → Z) : True
+
+Query:
+     Z : Fact.UNKNOWN
+
+Derivation Solution:
+     [ X : True ]           Conjunctive Elimination     from [ (X ∧ Y) : True ]           
+     [ Y : True ]           Conjunctive Elimination     from [ (X ∧ Y) : True ]           
+     [ (X ∨ Y) : True ]     Upward Pass                                                   
+     [ Z : True ]           Modus Ponens                from [ ((X ∨ Y) → Z) : True ]     
+     QED.

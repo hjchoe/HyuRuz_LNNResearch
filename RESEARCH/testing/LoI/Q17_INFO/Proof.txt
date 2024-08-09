@@ -1,0 +1,15 @@
+Model:
+     Q17
+
+Premises:
+     (¬A ∧ ¬C) : True
+     (B → C) : True
+
+Query:
+     ¬B : Fact.UNKNOWN
+
+Derivation Solution:
+     [ ¬A : True ]     Conjunctive Elimination     from [ (¬A ∧ ¬C) : True ]     
+     [ ¬C : True ]     Conjunctive Elimination     from [ (¬A ∧ ¬C) : True ]     
+     [ B : False ]     Modus Tollens               from [ (B → C) : True ]       
+     QED.

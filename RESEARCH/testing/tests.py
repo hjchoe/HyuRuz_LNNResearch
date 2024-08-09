@@ -810,7 +810,33 @@ def MPIDS():
 
     model.add_knowledge(P, Q, premise1)
 
-    Executor.inferModel(model=model, query=query, filename="ModusPonensImpliesDisjunctiveSyllogism") 
+    Executor.inferModel(model=model, query=query, filename="ModusPonensImpliesDisjunctiveSyllogism")
+
+def testtt():
+    model = Model()
+
+    A,B = Propositions('A','B')
+
+    query = Not(Implies(A, B))
+
+    query.add_data(Fact.TRUE)
+
+    model.add_knowledge(query)
+
+    model.print()
+
+def learning1():
+    model = Model()
+
+    A = Proposition('A')
+
+    premise = Or(A, Not(A))
+
+    model.set_query(premise)
+
+    model.train(losses=Loss.CONTRADICTION)
+
+    print(premise.state())
 
 if __name__ == "__main__":
-    test22()
+    testtt()

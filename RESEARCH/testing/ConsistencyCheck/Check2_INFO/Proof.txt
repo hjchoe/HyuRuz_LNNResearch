@@ -1,0 +1,16 @@
+Model:
+     Check2
+
+Premise:
+     (A ∧ B) : True
+
+Query:
+     ¬A : Fact.UNKNOWN
+
+Derivation Solution:
+     [ A : True ]     Conjunctive Elimination     from [ (A ∧ B) : True ]     
+     [ B : True ]     Conjunctive Elimination     from [ (A ∧ B) : True ]     
+
+     * The model has determined the QUERY is INCONSISTENT with the premises.
+
+     QED.

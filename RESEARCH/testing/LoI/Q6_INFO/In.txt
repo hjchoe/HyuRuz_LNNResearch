@@ -1,0 +1,25 @@
+
+<------------------------------ BEFORE INFERENCE ------------------------------>
+
+***************************************************************************
+                                LNN Q6
+
+1 [2, 6]: AXIOM Implies: (((A ∨ B) ∨ C) → D)                          TRUE (1.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+7 []: OPEN Proposition: D                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+2 [3, 5]: OPEN Or: ((A ∨ B) ∨ C)                                   UNKNOWN (0.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+5 []: OPEN Proposition: C                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+3 [0, 4]: OPEN Or: (A ∨ B)                                         UNKNOWN (0.0, 1.0)
+params  α: 1.0,  β: 1.0,  w: [1. 1.]
+4 []: OPEN Proposition: B                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0
+0 []: AXIOM Proposition: A                                        TRUE (1.0, 1.0)
+params  α: 1.0
+***************************************************************************
+
+__QUERY__
+OPEN Proposition: D                                      UNKNOWN (0.0, 1.0)
+params  α: 1.0

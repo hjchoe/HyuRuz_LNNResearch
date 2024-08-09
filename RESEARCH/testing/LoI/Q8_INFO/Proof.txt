@@ -1,0 +1,14 @@
+Model:
+     Q8
+
+Premises:
+     X : True
+     Y : True
+
+Query:
+     ((X ∧ Y) ∨ Z) : Fact.UNKNOWN
+
+Derivation Solution:
+     [ (X ∧ Y) : True ]           Upward Pass          
+     [ ((X ∧ Y) ∨ Z) : True ]     Upward Pass          
+     QED.
