@@ -127,18 +127,18 @@ def prove(model: Model, premises: List[Formula], query: Formula, printB: bool=Tr
         if contradictionFound:
             Printer.concludeContradiction(query.name)
 
-        # <-------------------- PROOF BY ADONIS ------------------->
+        # <-------------------- PROOF BY GUO ------------------->
 
-        # Try Proof by Adonis if Model does not prove query using Direct Proof, Principle of Explosion Check, or Proof by Contradiction
+        # Try Proof by Guo if Model does not prove query using Direct Proof, Principle of Explosion Check, or Proof by Contradiction
         else:
-            Printer.startAdonis(query)      # Setup Proof by Adonis in 'Proof.txt'
+            Printer.startGuo(query)      # Setup Proof by Guo in 'Proof.txt'
         
             steps, facts_inferred = resetAndRunModel(model=model, premises=premises, query=query, queryTV=Fact.TRUE, printB=printB, detailed=detailed, file=file)    # Reset Model, set query to a True, and run inference
             
-            # Conclude Proof by Adonis
-            #      * Determines the premises are inconsistent if contradiction found during Proof by Adonis
+            # Conclude Proof by Guo
+            #      * Determines the premises are inconsistent if contradiction found during Proof by Guo
             #      * Determines inconclusive otherwise
-            Printer.concludeAdonis(contradictionFound, query.name)
+            Printer.concludeGuo(contradictionFound, query.name)
 
     # <-------------------- FINALIZATION ------------------->
 

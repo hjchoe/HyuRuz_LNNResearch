@@ -133,18 +133,18 @@ def startContradiction(query: Formula):
     # Add the step to the solution steps list
     solution_steps.append((col1, "Proof By Contradiction", ""))
 
-def startAdonis(query: Formula):
+def startGuo(query: Formula):
     global solution_steps  # Use the global list to store solution steps
     path = os.path.join(dirPath, "Proof.txt")
 
     with open(path, 'a') as f:
         with redirect_stdout(f):
-            print("\n     * The model was unable to converge on a solution during proof by contradiction. Attempting PROOF BY ADONIS...\n")
+            print("\n     * The model was unable to converge on a solution during proof by contradiction. Attempting PROOF BY GUO...\n")
 
             col1 = f"     [ {query} : TRUE ]"
 
     # Add the step to the solution steps list
-    solution_steps.append((col1, "Proof By Adonis", ""))  
+    solution_steps.append((col1, "Proof By Guo", ""))  
 
 def principleOfExplosion(queryName: str):
     path = os.path.join(dirPath, "Proof.txt")
@@ -163,7 +163,7 @@ def concludeProof(state: bool, queryName: str):
             else:
                 print(f"\n     * The model has determined the QUERY is INCONSISTENT with the premises.\n\n     QED.")
 
-def concludeAdonis(state: bool, queryName: str):
+def concludeGuo(state: bool, queryName: str):
     path = os.path.join(dirPath, "Proof.txt")
 
     with open(path, 'a') as f:

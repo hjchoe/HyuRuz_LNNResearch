@@ -1,9 +1,9 @@
 from lnn import *
 from helper import Executor
 
-def TestingAdonisInconsistency():
+def TestingGuoInconsistency():
     # Initialize Model
-    model = Model(name="TestingAdonisInconsistency")
+    model = Model(name="TestingGuoInconsistency")
 
     # Initialize Propositions
     A,B,C = Propositions('A','B','C')
@@ -22,4 +22,4 @@ def TestingAdonisInconsistency():
     Executor.prove(model=model, premises=premises, query=query)
 
 if __name__ == "__main__":
-    TestingAdonisInconsistency()
+    TestingGuoInconsistency()

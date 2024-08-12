@@ -21,6 +21,7 @@ _utils.logger_setup()
 subclasses = {}
 
 #ADD {
+
 LawsOfInference = {
     (True, True, '→'): "Modus Ponens",
     (True, True, '∧'): "Conjunctive Elimination",
@@ -31,6 +32,7 @@ LawsOfInference = {
     (True, False, '→'): "Absorption 1",
     (False, False, '→'): "Absorption 2"
 }
+
 #}
 
 def _isinstance(obj, class_str) -> bool:
@@ -188,6 +190,7 @@ class _ConnectiveNeuron(_ConnectiveFormula):
                     f"PARENT:{self.formula_number} "
                 )
 #ADD {
+
                 # Detect operator neuron type
                 operatorType = None                                         # Initialize operatorType  
                 if _isinstance(self, "And"): operatorType = '∧'             # Check Conjunction (And) [ ∧ ]
@@ -206,6 +209,7 @@ class _ConnectiveNeuron(_ConnectiveFormula):
                         forTruth =  forTruth if type(forTruth) == bool else forTruth.name                       # Convert 'forTruth' to its string if it is still an enumerator
                         fromTruth = fromTruth if type(fromTruth) == bool else fromTruth.name                    # Convert 'fromTruth' to its string if it is still an enumerator
                         addSolStep_Derivation((op.name, forTruth), "CONTRADICTION", (self.name, fromTruth))     # Add CONTRADICTION to solution steps in Printer
+
 #}
             # If inference result is a contradiction
             if op.is_contradiction():
